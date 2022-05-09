@@ -6,13 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/mancha1"
+        android:layout_width="361dp"
+        android:layout_height="360dp"
+        android:src="@drawable/ic_mancha"
+        app:layout_constraintBottom_toTopOf="@+id/mancha3"
+        app:layout_constraintEnd_toStartOf="@+id/mancha2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
 
+    <ImageView
+        android:id="@+id/mancha3"
+        android:layout_width="356dp"
+        android:layout_height="394dp"
+        android:layout_marginEnd="204dp"
+        android:src="@drawable/ic_mancha"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="465dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/mancha2"
+        android:layout_width="356dp"
+        android:layout_height="394dp"
+        android:src="@drawable/ic_mancha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543"
+        tools:layout_editor_absoluteX="182dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
