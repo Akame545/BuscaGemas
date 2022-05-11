@@ -10,10 +10,36 @@ import com.alexmartin.buscagemas.board.Board;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1;
+    Button pickaxe;
+    Boolean activePickaxe = false;
+    Button explosive;
+    Boolean activeExplosive = true;
+
+    Button restart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        // Instanciacion y eventos onClick de Herramientas
+        pickaxe = findViewById(R.id.button);
+        explosive = findViewById(R.id.button);
+        pickaxe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeExplosive = false;
+                activePickaxe = true;
+            }
+        });
+        explosive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeExplosive = true;
+                activePickaxe = false;
+            }
+        });
 
         btn1 = findViewById(R.id.button);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -26,4 +52,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    //Método para comprobar que herramienta se esta usando
+    private void checkTool(){
+        if(activeExplosive){
+
+        } else {
+
+        }
+    }
+    //Usar evento onTouch para
 }
