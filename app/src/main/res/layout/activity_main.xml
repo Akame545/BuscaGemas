@@ -32,6 +32,23 @@
 
     <ImageView
         android:id="@+id/mancha3"
+        app:layout_constraintBottom_toTopOf="@+id/mancha3"
+        app:layout_constraintEnd_toStartOf="@+id/mancha2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/mancha3"
+        android:layout_width="356dp"
+        android:layout_height="394dp"
+        android:layout_marginEnd="204dp"
+        android:src="@drawable/ic_mancha"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="465dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/mancha2"
         android:layout_width="356dp"
         android:layout_height="394dp"
         android:src="@drawable/ic_mancha"
@@ -134,6 +151,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btResultados" />
-
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543"
+        tools:layout_editor_absoluteX="182dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
