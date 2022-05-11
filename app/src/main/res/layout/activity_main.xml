@@ -15,4 +15,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="361dp"
+        android:layout_height="360dp"
+        android:src="@drawable/ic_mancha"
+        tools:layout_editor_absoluteX="-180dp"
+        tools:layout_editor_absoluteY="-14dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="356dp"
+        android:layout_height="394dp"
+        android:src="@drawable/ic_mancha"
+        tools:layout_editor_absoluteX="-140dp"
+        tools:layout_editor_absoluteY="469dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="356dp"
+        android:layout_height="394dp"
+        android:src="@drawable/ic_mancha"
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="229dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
