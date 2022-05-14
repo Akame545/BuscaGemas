@@ -4,7 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Game">
+    android:background="@drawable/animation_background"
+    tools:context=".Game"
+    android:id="@+id/contenedor">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_marco"
+        android:scaleType="fitXY"></ImageView>
 
     <androidx.gridlayout.widget.GridLayout
         android:layout_width="wrap_content"
