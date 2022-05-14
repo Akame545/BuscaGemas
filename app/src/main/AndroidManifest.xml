@@ -8,10 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BuscaGemas">
+        android:theme="@style/Theme.BuscaGemasSinActionBar">
+        <activity
+            android:name=".Game"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"></activity>
+        <activity
+            android:name=".Splash"
+            android:exported="true"
+            android:theme="@style/NoActionTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

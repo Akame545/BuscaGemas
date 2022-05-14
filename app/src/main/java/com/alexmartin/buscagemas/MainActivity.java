@@ -2,6 +2,7 @@ package com.alexmartin.buscagemas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,4 +62,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     //Usar evento onTouch para
+
+    public void openGame(View view) {
+        Intent intent = new Intent(MainActivity.this, Game.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
 }
