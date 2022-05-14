@@ -18,24 +18,6 @@
         android:layout_marginRight="260dp"
         />
 
-    <ImageView
-        android:id="@+id/mancha2"
-        android:layout_width="361dp"
-        android:layout_height="360dp"
-        android:src="@drawable/ic_mancha"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:layout_marginTop="490dp"
-        android:layout_marginRight="260dp"
-        />
-
-    <ImageView
-        android:id="@+id/mancha3"
-        app:layout_constraintBottom_toTopOf="@+id/mancha3"
-        app:layout_constraintEnd_toStartOf="@+id/mancha2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.146" />
 
     <ImageView
         android:id="@+id/mancha3"
@@ -111,6 +93,7 @@
         android:layout_marginTop="40dp"
         android:backgroundTint="#004BBB"
         android:text="Play"
+        android:onClick="openGame"
         android:fontFamily="@font/zendots"
         android:textColor="#FF842B"
 

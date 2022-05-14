@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuscaGemasSinActionBar">
         <activity
+            android:name=".Game"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Splash"
             android:exported="true"
