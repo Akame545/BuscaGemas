@@ -64,9 +64,14 @@ public class MainActivity extends AppCompatActivity {
     //Usar evento onTouch para
 
     public void openGame(View view) {
-        Intent intent = new Intent(MainActivity.this, Game.class);
+
+        //VERSION ANTERIOR
+        /*Intent intent = new Intent(MainActivity.this, Game.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);*/
+
+        Intent intent =new Intent(MainActivity.this, JuegoActivity.class);
         startActivity(intent);
     }
 }
