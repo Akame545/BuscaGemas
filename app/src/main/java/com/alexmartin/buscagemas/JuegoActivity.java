@@ -13,9 +13,9 @@ import android.widget.Toast;
 
 public class JuegoActivity extends AppCompatActivity implements onCellClickListener{
 
-    //prueba de zoom
+    /*//prueba de zoom
     private ScaleGestureDetector scaleGestureDetector;
-    private float FACTOR=1.0f;
+    private float FACTOR=1.0f;*/
 
 
     /*    Configuramos el adaptador y el RecyclerView en el método onCreate*/
@@ -50,8 +50,8 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
         gridRecyclerView.setAdapter(mineGridRecyclerAdapter);
 
 
-        //ZOOM
-        scaleGestureDetector=new ScaleGestureDetector(this,new ScaleListener());
+        /*//ZOOM
+        scaleGestureDetector=new ScaleGestureDetector(this,new ScaleListener());*/
     }
 
     // a este metodo le he añadido un parametro (position)
@@ -61,6 +61,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
 
     }
 
+    /*ZOOM  *//*
     @Override
     public boolean onTouchEvent(MotionEvent event){
         scaleGestureDetector.onTouchEvent(event);
@@ -77,6 +78,6 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
             return true;
         }
     }
-
+*/
 
 }
