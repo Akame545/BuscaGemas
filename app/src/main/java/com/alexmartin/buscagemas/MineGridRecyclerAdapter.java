@@ -70,7 +70,8 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
 
 //            Toast.makeText(getActivity().getApplicationContext(), "position:"+position, Toast.LENGTH_SHORT).show();
 
-            //nos permite mostrar el valor dentro de cada celda (textView)
+            /*nos permite mostrar el valor dentro de cada celda (textView). Si comentamos el primer if y su
+            else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
                 if (cell.getValue() == Cell.BOMB) {
                     valueTextView.setText(R.string.bomb);
@@ -88,9 +89,9 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                         valueTextView.setTextColor(Color.RED);
                     }
                 }
-            } else if (cell.isFlagged()) {
+            } /*else if (cell.isFlagged()) {
                 valueTextView.setText(R.string.flag);
-            }
+            }*/
         }
     }
 }

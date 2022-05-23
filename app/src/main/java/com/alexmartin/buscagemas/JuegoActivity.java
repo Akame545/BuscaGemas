@@ -57,8 +57,10 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     // a este metodo le he añadido un parametro (position)
     @Override
     public void cellClick(Cell cell, int position){
-        Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
-
+        //Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
+        //nos permite cambiar el estado de una celda a "isRevelated"
+        juego.handleCellClick(cell);
+        mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
     }
 
     /*ZOOM  *//*
