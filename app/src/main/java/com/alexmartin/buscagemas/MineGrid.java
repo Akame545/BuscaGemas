@@ -13,7 +13,7 @@ public class MineGrid {
 
     public MineGrid(int size){
         this.size=size;
-        cells=new ArrayList<>();
+        this.cells=new ArrayList<>();
         //inicialmente cada celda tendrá valores blancos
 
         /*  ATENCIÓN: En un momento me salian solo diez celdas (una fila) en la cuadricula ya que habia
