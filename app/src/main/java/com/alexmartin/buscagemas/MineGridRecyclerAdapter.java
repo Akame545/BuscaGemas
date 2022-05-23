@@ -89,6 +89,7 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                         valueTextView.setTextColor(Color.RED);
                     }
                 }
+
             } /*else if (cell.isFlagged()) {
                 valueTextView.setText(R.string.flag);
             }*/
