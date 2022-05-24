@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/animation_background.xml" value="0.22" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_baseline_restart_alt_24.xml" value="0.318" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas3.xml" value="0.22" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_game.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_juego.xml" value="0.33" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_main.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_splash.xml" value="0.1656534954407295" />
+      </map>
+    </option>
+  </component>
+</project>

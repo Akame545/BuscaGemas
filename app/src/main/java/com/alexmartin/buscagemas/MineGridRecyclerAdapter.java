@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.concurrent.BlockingQueue;
 
 //Clase Adaptador para el MineGrid
 public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecyclerAdapter.MineTileViewHolder> {
@@ -60,6 +61,7 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
 
         public void bind(final Cell cell, int position) {
             itemView.setBackgroundColor(Color.GRAY);
+            //itemView.setBackgroundResource(R.drawable.roca);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -77,17 +79,28 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                     valueTextView.setText(R.string.bomb);
                 } else if (cell.getValue() == Cell.BLANK) {
                     valueTextView.setText("");
-                    itemView.setBackgroundColor(Color.WHITE);
+                    itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {
                     /* si la celda es un nº, este sera de un color u otro dependiendo de cual sea */
-                    valueTextView.setText(String.valueOf(cell.getValue()));
-                    if (cell.getValue() == 1) {
-                        valueTextView.setTextColor(Color.BLUE);
-                    } else if (cell.getValue() == 2) {
-                        valueTextView.setTextColor(Color.GREEN);
-                    } else if (cell.getValue() == 3) {
-                        valueTextView.setTextColor(Color.RED);
+                    //valueTextView.setText(String.valueOf(cell.getValue()));
+                    switch (cell.getValue()){
+                        case 1: valueTextView.setBackgroundResource(R.drawable.bloque1);
+                            break;
+                        case 2: valueTextView.setBackgroundResource(R.drawable.bloque2);
+                            break;
+                        case 3: valueTextView.setBackgroundResource(R.drawable.bloque3);
+                            break;
+                        case 4: valueTextView.setBackgroundResource(R.drawable.bloque4);
+                            break;
+                        case 5: valueTextView.setBackgroundResource(R.drawable.bloque5);
+                            break;
+                        case 6: valueTextView.setBackgroundResource(R.drawable.bloque6);
+                            break;
+                        case 7: valueTextView.setBackgroundResource(R.drawable.bloque7);
+                            break;
+                        default: valueTextView.setBackgroundResource(R.drawable.bloque8);
                     }
+
                 }
             } /*else if (cell.isFlagged()) {
                 valueTextView.setText(R.string.flag);
