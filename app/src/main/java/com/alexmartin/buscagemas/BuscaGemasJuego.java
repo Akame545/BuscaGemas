@@ -7,9 +7,10 @@ public class BuscaGemasJuego {
     private MineGrid mineGrid;
     private boolean clearMode;
 
-    public BuscaGemasJuego(int size, int numberOfBombs){
+
+    public BuscaGemasJuego(int size, int numberOfBombs, int spanCount){
         this.clearMode=true;
-        mineGrid=new MineGrid(size);
+        mineGrid=new MineGrid(size, spanCount);
         mineGrid.generateGrid(numberOfBombs);
     }
 

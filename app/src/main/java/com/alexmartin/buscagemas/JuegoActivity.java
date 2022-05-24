@@ -23,6 +23,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     MineGridRecyclerAdapter mineGridRecyclerAdapter;
     BuscaGemasJuego juego;
     TextView smiley;
+    int spanCount=8;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
             //crearemos un nuevo juego
             @Override
             public void onClick(View view) {
-                juego = new BuscaGemasJuego(10, 10);
+                juego = new BuscaGemasJuego(240, 20, spanCount);
                 mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
             }
         });
@@ -42,9 +43,9 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
         //INICIAR RECYCLERVIEW EN LA ACTIVIDAD
         gridRecyclerView = findViewById(R.id.activity_main_grid);
 //        10=Tamaño del grid (10x10)
-        GridLayoutManager mLayout=new GridLayoutManager(this, 10);
+        GridLayoutManager mLayout=new GridLayoutManager(this, spanCount);
         gridRecyclerView.setLayoutManager(mLayout);
-        juego=new BuscaGemasJuego(10, 10);
+        juego=new BuscaGemasJuego(240, 20, spanCount);
         mineGridRecyclerAdapter = new MineGridRecyclerAdapter(juego.getMineGrid().getCells(), this);
         //set the recycler adapter on the RecyclerView
         gridRecyclerView.setAdapter(mineGridRecyclerAdapter);
