@@ -73,6 +73,17 @@ public class BuscaGemasJuego {
             isGameOver = true;
         }
     }
+    public boolean isGameWon(){
+        int cellsUnrevealed=0;
+        for (Cell c: getMineGrid().getCells()){
+            if(c.getValue() != Cell.BOMB && c.getValue() != Cell.BLANK && !c.isRevealed()){
+                cellsUnrevealed++;
+            }
+        }
+        if (cellsUnrevealed == 0){
+            return true;
+        } else return false;
+    }
 
     public MineGrid getMineGrid(){
         return mineGrid;

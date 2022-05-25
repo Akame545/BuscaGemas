@@ -68,6 +68,10 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
             Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
             juego.getMineGrid().revealAllBombs();
         }
+        if (juego.isGameWon()){
+            Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
+            juego.getMineGrid().revealAllBombs();
+        }
 
         mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
     }
