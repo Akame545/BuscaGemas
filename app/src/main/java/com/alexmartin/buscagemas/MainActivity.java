@@ -12,9 +12,10 @@ import com.alexmartin.buscagemas.board.Board;
 public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button pickaxe;
-    Boolean activePickaxe = false;
+
     Button explosive;
-    Boolean activeExplosive = true;
+//    Boolean activeExplosive = true;
+//    Boolean activePickaxe = false;
 
     Button restart;
 
@@ -25,42 +26,42 @@ public class MainActivity extends AppCompatActivity {
 
 
         // Instanciacion y eventos onClick de Herramientas
-        pickaxe = findViewById(R.id.button);
-        explosive = findViewById(R.id.button);
-        pickaxe.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activeExplosive = false;
-                activePickaxe = true;
-            }
-        });
-        explosive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                activeExplosive = true;
-                activePickaxe = false;
-            }
-        });
+//        pickaxe = findViewById(R.id.button);
+//        explosive = findViewById(R.id.button);
+//        pickaxe.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                activeExplosive = false;
+//                activePickaxe = true;
+//            }
+//        });
+//        explosive.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                activeExplosive = true;
+//                activePickaxe = false;
+//            }
+//        });
 
-        btn1 = findViewById(R.id.button);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Board b = new Board(8,8,30);
-                b.printMap();
-                System.out.println("-------------------------------");
-                b.printHint();
-            }
-        });
+//        btn1 = findViewById(R.id.button);
+//        btn1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Board b = new Board(8,8,30);
+//                b.printMap();
+//                System.out.println("-------------------------------");
+//                b.printHint();
+//            }
+//        });
     }
     //Método para comprobar que herramienta se esta usando
-    private void checkTool(){
-        if(activeExplosive){
-
-        } else {
-
-        }
-    }
+//    private void checkTool(){
+//        if(activeExplosive){
+//
+//        } else {
+//
+//        }
+//    }
     //Usar evento onTouch para
 
     public void openGame(View view) {

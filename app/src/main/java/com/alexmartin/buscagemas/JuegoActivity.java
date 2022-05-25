@@ -5,13 +5,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class JuegoActivity extends AppCompatActivity implements onCellClickListener{
+import com.alexmartin.buscagemas.board.Cell;
+import com.alexmartin.buscagemas.recyclerview.MineGridRecyclerAdapter;
+import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
+
+public class JuegoActivity extends AppCompatActivity implements onCellClickListener {
 
     /*//prueba de zoom
     private ScaleGestureDetector scaleGestureDetector;
@@ -23,18 +26,22 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     MineGridRecyclerAdapter mineGridRecyclerAdapter;
     BuscaGemasJuego juego;
     TextView smiley;
-
+    ImageButton pico;
+    ImageButton dinamita;
+    Boolean activeExplosive = true;
+    Boolean activePickaxe = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
-
-        smiley=findViewById(R.id.activity_main_smiley);
+        pico = findViewById(R.id.pico);
+        dinamita = findViewById(R.id.dinamita);
+        smiley=findViewById(R.id.restart);
         smiley.setOnClickListener(new View.OnClickListener() {
             //crearemos un nuevo juego
             @Override
             public void onClick(View view) {
-                juego = new BuscaGemasJuego(10, 10);
+                juego = new BuscaGemasJuego(20, 10);
                 mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
             }
         });
@@ -52,6 +59,22 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
 
         /*//ZOOM
         scaleGestureDetector=new ScaleGestureDetector(this,new ScaleListener());*/
+
+//         Instanciacion y eventos onClick de Herramientas
+        pico.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeExplosive = false;
+                activePickaxe = true;
+            }
+        });
+        dinamita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activeExplosive = true;
+                activePickaxe = false;
+            }
+        });
     }
 
     // a este metodo le he añadido un parametro (position)
@@ -59,7 +82,21 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     public void cellClick(Cell cell, int position){
         //Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
         //nos permite cambiar el estado de una celda a "isRevelated"
-        juego.handleCellClick(cell);
+        if(activeExplosive){
+            juego.handleCellClick(cell,true);
+        } else juego.handleCellClick(cell,false);
+
+
+
+        if (juego.isGameOver()){
+            Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
+            juego.getMineGrid().revealAllBombs();
+        }
+        if (juego.isGameWon()){
+            Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
+            juego.getMineGrid().revealAllBombs();
+        }
+
         mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
     }
 
