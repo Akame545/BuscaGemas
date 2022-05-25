@@ -18,11 +18,13 @@ public class BuscaGemasJuego {
         mineGrid.generateGrid(numberOfBombs);
     }
 
-    public void handleCellClick(Cell cell) {
+    public void handleCellClick(Cell cell, Boolean herramienta) {
         if (!isGameOver){
-            if (clearMode) {
-                clear(cell);
-            }
+            if(herramienta) {
+                if (clearMode) {
+                    clear(cell);
+                }
+            } else cell.setFlagged(true);
         }
 
     }

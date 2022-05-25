@@ -62,7 +62,7 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
         }
 
         public void bind(final Cell cell, int position) {
-            itemView.setBackgroundColor(Color.GRAY);
+            valueTextView.setBackgroundResource(R.drawable.roca);
             //itemView.setBackgroundResource(R.drawable.roca);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -78,7 +78,7 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
             else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
                 if (cell.getValue() == Cell.BOMB) {
-                    valueTextView.setText(R.string.bomb);
+                    valueTextView.setBackgroundResource(R.drawable.joya_rosa);
                 } else if (cell.getValue() == Cell.BLANK) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
@@ -104,9 +104,10 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                     }
 
                 }
-            } /*else if (cell.isFlagged()) {
-                valueTextView.setText(R.string.flag);
-            }*/
+            } else if (cell.isFlagged()) {
+                valueTextView.setBackgroundResource(R.drawable.joya_azul);
+
+            }
         }
     }
 }

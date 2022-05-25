@@ -12,9 +12,10 @@ import com.alexmartin.buscagemas.board.Board;
 public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button pickaxe;
-    Boolean activePickaxe = false;
+
     Button explosive;
-    Boolean activeExplosive = true;
+//    Boolean activeExplosive = true;
+//    Boolean activePickaxe = false;
 
     Button restart;
 
