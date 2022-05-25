@@ -5,13 +5,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class JuegoActivity extends AppCompatActivity implements onCellClickListener{
+import com.alexmartin.buscagemas.board.Cell;
+import com.alexmartin.buscagemas.recyclerview.MineGridRecyclerAdapter;
+import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
+
+public class JuegoActivity extends AppCompatActivity implements onCellClickListener {
 
     /*//prueba de zoom
     private ScaleGestureDetector scaleGestureDetector;
@@ -60,6 +62,17 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
         //Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
         //nos permite cambiar el estado de una celda a "isRevelated"
         juego.handleCellClick(cell);
+
+
+        if (juego.isGameOver()){
+            Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
+            juego.getMineGrid().revealAllBombs();
+        }
+        if (juego.isGameWon()){
+            Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
+            juego.getMineGrid().revealAllBombs();
+        }
+
         mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
     }
 

@@ -1,4 +1,4 @@
-package com.alexmartin.buscagemas;
+package com.alexmartin.buscagemas.board;
 
 public class Cell {
     public static final int BOMB = -1;
