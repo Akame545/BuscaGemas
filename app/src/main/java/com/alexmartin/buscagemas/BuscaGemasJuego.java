@@ -1,22 +1,30 @@
 package com.alexmartin.buscagemas;
 
+import com.alexmartin.buscagemas.board.Cell;
+import com.alexmartin.buscagemas.board.MineGrid;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BuscaGemasJuego {
     private MineGrid mineGrid;
     private boolean clearMode;
+    private boolean isGameOver;
 
     public BuscaGemasJuego(int size, int numberOfBombs){
         this.clearMode=true;
+        this.isGameOver=false;
         mineGrid=new MineGrid(size);
         mineGrid.generateGrid(numberOfBombs);
     }
 
     public void handleCellClick(Cell cell) {
-        if (clearMode) {
-            clear(cell);
+        if (!isGameOver){
+            if (clearMode) {
+                clear(cell);
+            }
         }
+
     }
 
     /*METODO PARA LIMPIAR LOS BLOQUES DE CELDAS SIN MINAS */
@@ -61,10 +69,16 @@ public class BuscaGemasJuego {
             for (Cell c: toClear) {
                 c.setRevealed(true);
             }
+        } else if (cell.getValue() == Cell.BOMB){
+            isGameOver = true;
         }
     }
 
     public MineGrid getMineGrid(){
         return mineGrid;
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
     }
 }

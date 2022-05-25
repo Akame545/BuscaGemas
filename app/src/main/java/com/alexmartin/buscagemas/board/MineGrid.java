@@ -1,4 +1,4 @@
-package com.alexmartin.buscagemas;
+package com.alexmartin.buscagemas.board;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,7 +107,13 @@ public class MineGrid {
         }
         return cells.get(toIndex(x, y));
     }
-
+    public void revealAllBombs(){
+        for (Cell cell: cells){
+            if (cell.getValue() == Cell.BOMB){
+                cell.setRevealed(true);
+            }
+        }
+    }
     public ArrayList<Cell> getCells(){
         return cells;
     }

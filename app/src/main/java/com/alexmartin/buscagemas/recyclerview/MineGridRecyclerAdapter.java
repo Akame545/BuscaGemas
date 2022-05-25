@@ -1,14 +1,16 @@
-package com.alexmartin.buscagemas;
+package com.alexmartin.buscagemas.recyclerview;
 
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.alexmartin.buscagemas.R;
+import com.alexmartin.buscagemas.board.Cell;
 
 import java.util.List;
 
