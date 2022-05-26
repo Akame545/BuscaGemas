@@ -62,7 +62,10 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
         //Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
         //nos permite cambiar el estado de una celda a "isRevelated"
         juego.handleCellClick(cell);
+        switch (juego.getLives()){
+            case 3:
 
+        }
 
         if (juego.isGameOver()){
             Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();

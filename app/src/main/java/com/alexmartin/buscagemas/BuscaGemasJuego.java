@@ -10,12 +10,13 @@ public class BuscaGemasJuego {
     private MineGrid mineGrid;
     private boolean clearMode;
     private boolean isGameOver;
-
+    private int lives;
     public BuscaGemasJuego(int size, int numberOfBombs){
         this.clearMode=true;
         this.isGameOver=false;
         mineGrid=new MineGrid(size);
         mineGrid.generateGrid(numberOfBombs);
+        lives = 3;
     }
 
     public void handleCellClick(Cell cell) {
@@ -70,7 +71,9 @@ public class BuscaGemasJuego {
                 c.setRevealed(true);
             }
         } else if (cell.getValue() == Cell.BOMB){
-            isGameOver = true;
+            if(lives>0)
+                lives--;
+            else isGameOver = true;
         }
     }
     public boolean isGameWon(){
@@ -91,5 +94,9 @@ public class BuscaGemasJuego {
 
     public boolean isGameOver() {
         return isGameOver;
+    }
+
+    public int getLives() {
+        return lives;
     }
 }
