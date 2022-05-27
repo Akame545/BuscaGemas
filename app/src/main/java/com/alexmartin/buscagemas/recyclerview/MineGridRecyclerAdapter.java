@@ -62,7 +62,8 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
         }
 
         public void bind(final Cell cell, int position) {
-            valueTextView.setBackgroundResource(R.drawable.roca);
+            itemView.setBackgroundColor(Color.GRAY);
+            //valueTextView.setBackgroundResource(R.drawable.ic_roca);
             //itemView.setBackgroundResource(R.drawable.roca);
 
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +85,12 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {
                     /* si la celda es un nº, este sera de un color u otro dependiendo de cual sea */
-                    //valueTextView.setText(String.valueOf(cell.getValue()));
+                    valueTextView.setText(String.valueOf(cell.getValue()));
                     switch (cell.getValue()){
-                        case 1: valueTextView.setBackgroundResource(R.drawable.bloque1);
+                        case 1:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(Color.BLUE);
+                            //valueTextView.setBackgroundResource(R.drawable.bloque1);
                             break;
                         case 2: valueTextView.setBackgroundResource(R.drawable.bloque2);
                             break;

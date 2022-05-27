@@ -3,14 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Perfiles/am11dam2/Desktop/WOLFCRAY/android/BuscaGemas/app/src/main/res/layout/activity_juego.xml" value="0.33" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/animation_background.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/button.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamita.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamitafondo.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondos.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joya.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_restart.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_roca.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas0.xml" value="0.183" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas2.xml" value="0.183" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_game.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_juego.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_main.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_splash.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/item_cell.xml" value="0.33" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
