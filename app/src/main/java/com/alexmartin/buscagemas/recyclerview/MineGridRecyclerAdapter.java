@@ -1,11 +1,13 @@
 package com.alexmartin.buscagemas.recyclerview;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -62,7 +64,9 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
         }
 
         public void bind(final Cell cell, int position) {
-            itemView.setBackgroundColor(Color.GRAY);
+            int color1 = valueTextView.getResources().getColor(R.color.beage);
+            int color2 = valueTextView.getResources().getColor(R.color.azulado);
+            itemView.setBackgroundResource(R.drawable.ic_roca);
             //valueTextView.setBackgroundResource(R.drawable.ic_roca);
             //itemView.setBackgroundResource(R.drawable.roca);
 
@@ -89,22 +93,37 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                     switch (cell.getValue()){
                         case 1:
                             itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(Color.BLUE);
+                            valueTextView.setTextColor(color1);
+
                             //valueTextView.setBackgroundResource(R.drawable.bloque1);
                             break;
-                        case 2: valueTextView.setBackgroundResource(R.drawable.bloque2);
+                        case 2:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 3: valueTextView.setBackgroundResource(R.drawable.bloque3);
+                        case 3:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 4: valueTextView.setBackgroundResource(R.drawable.bloque4);
+                        case 4:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 5: valueTextView.setBackgroundResource(R.drawable.bloque5);
+                        case 5:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 6: valueTextView.setBackgroundResource(R.drawable.bloque6);
+                        case 6:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 7: valueTextView.setBackgroundResource(R.drawable.bloque7);
+                        case 7:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        default: valueTextView.setBackgroundResource(R.drawable.bloque8);
+                        default:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                     }
 
                 }

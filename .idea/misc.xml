@@ -5,11 +5,20 @@
       <map>
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/animation_background.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/button.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color1.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color2.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color3.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color4.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color5.xml" value="0.1615" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamita.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamitafondo.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondo.xml" value="0.238" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondos.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joya.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico_splash.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_picofondo.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_picos.xml" value="0.238" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_restart.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_roca.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas0.xml" value="0.183" />
@@ -22,5 +31,5 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

@@ -1,9 +1,11 @@
 package com.alexmartin.buscagemas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -25,8 +27,9 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     RecyclerView gridRecyclerView;
     MineGridRecyclerAdapter mineGridRecyclerAdapter;
     BuscaGemasJuego juego;
-    TextView smiley;
+    ImageButton smiley;
     ImageButton pico;
+    AnimationDrawable anim;
     ImageButton dinamita;
     Boolean activeExplosive = true;
     Boolean activePickaxe = false;
@@ -34,6 +37,14 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_juego);
+
+        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.juego);
+
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(7000);
+        anim.setExitFadeDuration(2000);
+
+
         pico = findViewById(R.id.pico);
         dinamita = findViewById(R.id.dinamita);
         smiley=findViewById(R.id.restart);
@@ -75,6 +86,23 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
                 activePickaxe = false;
             }
         });
+    }
+
+
+    // Starting animation:- start the animation on onResume.
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
+    }
+
+    // Stopping animation:- stop the animation on onPause.
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
     }
 
     // a este metodo le he añadido un parametro (position)

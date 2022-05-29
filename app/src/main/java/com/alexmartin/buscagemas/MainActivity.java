@@ -1,8 +1,10 @@
 package com.alexmartin.buscagemas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,11 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
     Button restart;
 
+    AnimationDrawable anim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.main);
+
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
 
         // Instanciacion y eventos onClick de Herramientas
 //        pickaxe = findViewById(R.id.button);
@@ -54,6 +63,24 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
+    // Starting animation:- start the animation on onResume.
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
+    }
+
+    // Stopping animation:- stop the animation on onPause.
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
+    }
+
+
     //Método para comprobar que herramienta se esta usando
 //    private void checkTool(){
 //        if(activeExplosive){
