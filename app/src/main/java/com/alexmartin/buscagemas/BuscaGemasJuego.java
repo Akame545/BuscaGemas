@@ -10,20 +10,21 @@ public class BuscaGemasJuego {
     private MineGrid mineGrid;
     private boolean clearMode;
     private boolean isGameOver;
-    private int lives;
+    private int lifes=2;
     public BuscaGemasJuego(int size, int numberOfBombs){
         this.clearMode=true;
         this.isGameOver=false;
         mineGrid=new MineGrid(size);
         mineGrid.generateGrid(numberOfBombs);
-        lives = 3;
     }
 
-    public void handleCellClick(Cell cell) {
+    public void handleCellClick(Cell cell, Boolean herramienta) {
         if (!isGameOver){
-            if (clearMode) {
-                clear(cell);
-            }
+            if(herramienta) {
+                if (clearMode) {
+                    clear(cell);
+                }
+            } else cell.setFlagged(true);
         }
 
     }
@@ -71,9 +72,9 @@ public class BuscaGemasJuego {
                 c.setRevealed(true);
             }
         } else if (cell.getValue() == Cell.BOMB){
-            if(lives>0)
-                lives--;
-            else isGameOver = true;
+            if(lifes == 0)
+                isGameOver = true;
+            else lifes--;
         }
     }
     public boolean isGameWon(){
@@ -96,7 +97,7 @@ public class BuscaGemasJuego {
         return isGameOver;
     }
 
-    public int getLives() {
-        return lives;
+    public int getLifes() {
+        return lifes;
     }
 }
