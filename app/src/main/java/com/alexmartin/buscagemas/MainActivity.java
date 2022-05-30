@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.alexmartin.buscagemas.board.Board;
-
 public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button pickaxe;
@@ -99,7 +97,14 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);*/
 
-        Intent intent =new Intent(MainActivity.this, JuegoActivity.class);
+        Intent intent =new Intent(MainActivity.this, TableGame.class);
+        // *****************************************************************************************************************************
+        //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
+        // *****************************************************************************************************************************
+        Bundle bundle = new Bundle();
+        bundle.putInt("mode",0);
+        bundle.putInt("cuantityGems", 1);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }

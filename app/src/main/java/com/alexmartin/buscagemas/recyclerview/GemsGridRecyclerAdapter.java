@@ -1,29 +1,25 @@
 package com.alexmartin.buscagemas.recyclerview;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alexmartin.buscagemas.R;
 import com.alexmartin.buscagemas.board.Cell;
-import com.alexmartin.buscagemas.board.MineGrid;
 
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 
 //Clase Adaptador para el MineGrid
-public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecyclerAdapter.MineTileViewHolder> {
+public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecyclerAdapter.MineTileViewHolder> {
     private List<Cell> cells;
     private onCellClickListener listener;
 
-    public MineGridRecyclerAdapter(List<Cell> cells, onCellClickListener listener) {
+    public GemsGridRecyclerAdapter(List<Cell> cells, onCellClickListener listener) {
         this.cells = cells;
         this.listener = listener;
     }
@@ -73,7 +69,7 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.cellClick(cell,position);
+                    listener.cellClick(cell);
                 }
             });
 
@@ -82,9 +78,9 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
             /*nos permite mostrar el valor dentro de cada celda (textView). Si comentamos el primer if y su
             else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
-                if (cell.getValue() == Cell.BOMB) {
+                if (cell.isHasGem()) {
                     valueTextView.setBackgroundResource(R.drawable.joya_rosa);
-                } else if (cell.getValue() == Cell.BLANK) {
+                } else if (cell.getValue() == 0) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {

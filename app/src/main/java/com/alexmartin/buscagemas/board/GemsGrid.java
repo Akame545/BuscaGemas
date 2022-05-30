@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 //CLASE QUE REPRESENTA LA CUADRICULA DE MINAS
-public class MineGrid {
+public class GemsGrid {
     //en este arrayList se meteran cada una de las celdas del grid
     private ArrayList<Cell> cellsList;
     //el tamaño es el número de cuadrados en las filas y columnas
@@ -14,14 +14,12 @@ public class MineGrid {
     public int filas;
     public int columnas;
 
-    public MineGrid(int columnas, int filas){
+    public GemsGrid(int filas, int columnas){
         this.columnas=columnas;
         this.filas=filas;
         this.cellsList=new ArrayList<>();
-        this.filas= (int) (size/8);
-        //inicialmente cada celda tendrá valores blancos
 
-        for (int x=0; x<filas;x = x++){
+        for (int x=0; x<filas;x++){
             //si tenemos un grid de 10x10, se añadiran al ArrayList 100 nuevas celdas vacias
             for(int y=0; y<columnas;y++) {
                 cellsList.add(new Cell(x, y));
@@ -69,7 +67,7 @@ public class MineGrid {
         }
     }
     //construye un ArrayList con todas las celdas que son adyacentes a las del parametro
-    private List<Cell> adjacentCells(int x,int y ){
+    public List<Cell> adjacentCells(int x, int y){
         List<Cell> tempListCells = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             int tempX = x;
@@ -142,12 +140,12 @@ public class MineGrid {
     }
     public void revealAllBombs(){
         for (Cell cell: cellsList){
-            if (cell.getValue() == Cell.BOMB){
+            if (cell.isHasGem()){
                 cell.setRevealed(true);
             }
         }
     }
-    public ArrayList<Cell> getcellsList(){
+    public ArrayList<Cell> getCellsList(){
         return cellsList;
     }
 }

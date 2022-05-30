@@ -41,7 +41,7 @@
         app:srcCompat="@drawable/ic_joya" />
 
     <ImageView
-        android:id="@+id/pico"
+        android:id="@+id/picaxe"
         android:layout_width="96dp"
         android:layout_height="90dp"
         android:layout_marginStart="60dp"

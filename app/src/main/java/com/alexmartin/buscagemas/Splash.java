@@ -9,8 +9,6 @@ import android.os.Looper;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 public class Splash extends AppCompatActivity {
     ImageView icono;
@@ -19,7 +17,7 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         openMain(true);
-        icono = (ImageView) findViewById(R.id.pico);
+        icono = (ImageView) findViewById(R.id.picaxe);
         Animation roatation = AnimationUtils.loadAnimation(this,R.anim.rotate);
         icono.startAnimation(roatation);
     }
