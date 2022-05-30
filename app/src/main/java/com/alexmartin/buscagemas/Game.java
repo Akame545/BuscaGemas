@@ -17,8 +17,8 @@ public class Game extends AppCompatActivity {
         ConstraintLayout container = (ConstraintLayout) findViewById(R.id.contenedor);
 
         anim = (AnimationDrawable) container.getBackground();
-        anim.setEnterFadeDuration(3000);
-        anim.setExitFadeDuration(1000);
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
     }
 
     // Starting animation:- start the animation on onResume.

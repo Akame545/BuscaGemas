@@ -49,7 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.77"
-        app:srcCompat="@drawable/ic_pico" />
+        app:srcCompat="@drawable/ic_pico_splash" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

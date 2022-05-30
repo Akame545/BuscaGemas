@@ -8,4 +8,13 @@
     <color name="azul">#3A55E6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+<!--    PALETA DE COLORES-->
+    <color name="azulado">#364959</color>
+    <color name="gris">#403F2F</color>
+    <color name="amarillo">#BF8211</color>
+    <color name="beage">#BF9D5E</color>
+    <color name="marron">#8C5007</color>
+
 </resources>
