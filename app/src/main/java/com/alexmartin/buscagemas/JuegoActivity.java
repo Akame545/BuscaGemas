@@ -35,7 +35,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
             //crearemos un nuevo juego
             @Override
             public void onClick(View view) {
-                juego = new BuscaGemasJuego(240, 20, spanCount);
+                juego = new BuscaGemasJuego(20, 20, spanCount);
                 mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
             }
         });

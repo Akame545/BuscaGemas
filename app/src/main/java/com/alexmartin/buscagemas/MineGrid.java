@@ -39,17 +39,20 @@ public class MineGrid {
     /* comprueba si el nº de bombas metidas es menor que el numero total de bombas que necesitamos meter.
         En caso de ser afirmativo se meten las necesarias   */
     public void generateGrid(int totalBombs) {
+        System.out.println("Entra en generateGrid");
         int bombsPlaced = 0;
         while (bombsPlaced < totalBombs) {
             int x = new Random().nextInt(filas);
             int y = new Random().nextInt(columnas);
 
             int index = toIndex(x, y);
-            System.out.println(index);
+            System.out.println("x:"+x+",y:"+y+",index:"+index);
 
             if (cells.get(index).getValue() == Cell.BLANK) {
+                System.out.println("(gG) Comprueba que la celda tenga el valor blank");
                 cells.set(index, new Cell(Cell.BOMB));
                 bombsPlaced++;
+                System.out.println("Mete una nueva bomba");
             }
         }
         //calculamos los numeros  que se dispondran en el grid
@@ -75,17 +78,27 @@ public class MineGrid {
     }
     //construye un ArrayList con todas las celdas que son adyacentes a las del parametro
     public List<Cell> adjacentCells(int x, int y) {
+        System.out.println("Entra en adjacentCells");
         List<Cell> adjacentCells = new ArrayList<>();
 
+        System.out.println("(AC) Empieza a meter en una lista las celdas adjacentes (x:"+x+",y:"+y+")");
         List<Cell> cellsList = new ArrayList<>();
         cellsList.add(cellAt(x-1, y));
+        System.out.println("1");
         cellsList.add(cellAt(x+1, y));
+        System.out.println("2");
         cellsList.add(cellAt(x-1, y-1));
+        System.out.println("3");
         cellsList.add(cellAt(x, y-1));
+        System.out.println("4");
         cellsList.add(cellAt(x+1, y-1));
+        System.out.println("5");
         cellsList.add(cellAt(x-1, y+1));
+        System.out.println("6");
         cellsList.add(cellAt(x, y+1));
+        System.out.println("7");
         cellsList.add(cellAt(x+1, y+1));
+        System.out.println("Termina de meter en una lista las celdas adjacentes");
 
         for (Cell cell: cellsList) {
             if (cell != null) {
@@ -99,7 +112,8 @@ public class MineGrid {
     //convierte las cordinadas x e y en un "indice" en nuestra lista
     public int toIndex(int x, int y){
         //return x + (y*size);
-        return ((x*columnas) - (columnas-y)-1);
+//        return ((x*columnas) - (columnas-y)-1);
+        return ((x+1)*columnas)-(columnas-(y+1));
     }
 
     public int[] toXY(int index){
@@ -109,6 +123,12 @@ public class MineGrid {
         int x, y;
         x=index/columnas;
         y=index%columnas;
+
+        if (index%columnas==0){
+            y=columnas-1;
+        }else{
+            y=y-1;
+        }
         /*int auxX=index/columnas;
         int auxY=index%columnas;
         if (index%columnas!=0){
@@ -123,7 +143,7 @@ public class MineGrid {
     /*comprueba que la coordenada pasada por parametro se encuentra dentro del trablero y devuelve
     el objeto celda (de la clase Cell) de esa coordenada.*/
     public Cell cellAt(int x, int y) {
-        if (x < 0 || x >= filas || y < 0 || y >= columnas) {
+        if (x < 0 || x > filas || y < 0 || y > columnas) {
             return null;
         }
         return cells.get(toIndex(x, y));
