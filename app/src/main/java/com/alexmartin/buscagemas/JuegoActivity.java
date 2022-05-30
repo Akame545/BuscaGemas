@@ -39,6 +39,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     ProgressBar progressBar;
     Handler handler = new Handler();
     ImageView imageVidas;
+    int spanCount=8;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +67,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
             @Override
             public void onClick(View view) {
                 juego = new BuscaGemasJuego(20, 10);
+
                 mineGridRecyclerAdapter.setCells(juego.getMineGrid().getCells());
             }
         });
@@ -73,7 +75,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
         //INICIAR RECYCLERVIEW EN LA ACTIVIDAD
         gridRecyclerView = findViewById(R.id.activity_main_grid);
 //        10=Tamaño del grid (10x10)
-        GridLayoutManager mLayout=new GridLayoutManager(this, 10);
+        GridLayoutManager mLayout=new GridLayoutManager(this, spanCount);
         gridRecyclerView.setLayoutManager(mLayout);
         juego=new BuscaGemasJuego(10, 40);
         mineGridRecyclerAdapter = new MineGridRecyclerAdapter(juego.getMineGrid().getCells(), this);
@@ -122,7 +124,7 @@ public class JuegoActivity extends AppCompatActivity implements onCellClickListe
     // a este metodo le he añadido un parametro (position)
     @Override
     public void cellClick(Cell cell, int position){
-        //Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "Cell clicked & "+position, Toast.LENGTH_LONG).show();
         //nos permite cambiar el estado de una celda a "isRevelated"
         if(activeExplosive){
             juego.handleCellClick(cell,true);

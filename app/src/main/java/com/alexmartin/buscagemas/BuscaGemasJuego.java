@@ -15,9 +15,10 @@ public class BuscaGemasJuego {
         this.clearMode=true;
         this.isGameOver=false;
         mineGrid=new MineGrid(size);
-        mineGrid.generateGrid(numberOfBombs);
+        mineGrid.placeGems(numberOfBombs);
+        mineGrid.asingValues();
     }
-
+    //public void generate
     public void handleCellClick(Cell cell, Boolean herramienta) {
         if (!isGameOver){
             if(herramienta) {

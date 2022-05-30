@@ -89,13 +89,12 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {
                     /* si la celda es un nº, este sera de un color u otro dependiendo de cual sea */
+                   //COMPROBAR SI HACE FALTA
                     valueTextView.setText(String.valueOf(cell.getValue()));
                     switch (cell.getValue()){
                         case 1:
                             itemView.setBackgroundColor(Color.TRANSPARENT);
                             valueTextView.setTextColor(color1);
-
-                            //valueTextView.setBackgroundResource(R.drawable.bloque1);
                             break;
                         case 2:
                             itemView.setBackgroundColor(Color.TRANSPARENT);
