@@ -14,9 +14,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/item_cell_value"
+        android:fontFamily="@font/zendots"
         android:textAlignment="center"
+        android:gravity="center"
         android:layout_gravity="center"
-        android:textSize="18sp"/>
+        android:textSize="24dp"/>
 
     <!--    En el TextView meteremos los numeros la bomba o la bandera segun las circunstancias.-->
 

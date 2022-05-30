@@ -1,13 +1,13 @@
 package com.alexmartin.buscagemas;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.alexmartin.buscagemas.board.Board;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1;
@@ -19,11 +19,18 @@ public class MainActivity extends AppCompatActivity {
 
     Button restart;
 
+    AnimationDrawable anim;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.main);
+
+        anim = (AnimationDrawable) container.getBackground();
+        anim.setEnterFadeDuration(6000);
+        anim.setExitFadeDuration(2000);
 
         // Instanciacion y eventos onClick de Herramientas
 //        pickaxe = findViewById(R.id.button);
@@ -54,6 +61,24 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
     }
+
+    // Starting animation:- start the animation on onResume.
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (anim != null && !anim.isRunning())
+            anim.start();
+    }
+
+    // Stopping animation:- stop the animation on onPause.
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (anim != null && anim.isRunning())
+            anim.stop();
+    }
+
+
     //Método para comprobar que herramienta se esta usando
 //    private void checkTool(){
 //        if(activeExplosive){
@@ -72,7 +97,14 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);*/
 
-        Intent intent =new Intent(MainActivity.this, JuegoActivity.class);
+        Intent intent =new Intent(MainActivity.this, TableGame.class);
+        // *****************************************************************************************************************************
+        //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
+        // *****************************************************************************************************************************
+        Bundle bundle = new Bundle();
+        bundle.putInt("mode",0);
+        bundle.putInt("cuantityGems", 1);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 }

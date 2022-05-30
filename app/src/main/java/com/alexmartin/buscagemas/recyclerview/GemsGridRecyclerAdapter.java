@@ -13,14 +13,13 @@ import com.alexmartin.buscagemas.R;
 import com.alexmartin.buscagemas.board.Cell;
 
 import java.util.List;
-import java.util.concurrent.BlockingQueue;
 
 //Clase Adaptador para el MineGrid
-public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecyclerAdapter.MineTileViewHolder> {
+public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecyclerAdapter.MineTileViewHolder> {
     private List<Cell> cells;
     private onCellClickListener listener;
 
-    public MineGridRecyclerAdapter(List<Cell> cells, onCellClickListener listener) {
+    public GemsGridRecyclerAdapter(List<Cell> cells, onCellClickListener listener) {
         this.cells = cells;
         this.listener = listener;
     }
@@ -40,7 +39,6 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
 
         holder.setIsRecyclable(false);
     }
-
     //Nos indica el numero de elementos de la coleccion de datos.
     @Override
     public int getItemCount() {
@@ -62,13 +60,16 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
         }
 
         public void bind(final Cell cell, int position) {
-            valueTextView.setBackgroundResource(R.drawable.roca);
+            int color1 = valueTextView.getResources().getColor(R.color.beage);
+            int color2 = valueTextView.getResources().getColor(R.color.azulado);
+            itemView.setBackgroundResource(R.drawable.ic_roca);
+            //valueTextView.setBackgroundResource(R.drawable.ic_roca);
             //itemView.setBackgroundResource(R.drawable.roca);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.cellClick(cell,position);
+                    listener.cellClick(cell);
                 }
             });
 
@@ -77,36 +78,52 @@ public class MineGridRecyclerAdapter extends RecyclerView.Adapter<MineGridRecycl
             /*nos permite mostrar el valor dentro de cada celda (textView). Si comentamos el primer if y su
             else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
-                if (cell.getValue() == Cell.BOMB) {
+                if (cell.isHasGem()) {
                     valueTextView.setBackgroundResource(R.drawable.joya_rosa);
-                } else if (cell.getValue() == Cell.BLANK) {
+                } else if (cell.getValue() == 0) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {
                     /* si la celda es un nº, este sera de un color u otro dependiendo de cual sea */
-                    //valueTextView.setText(String.valueOf(cell.getValue()));
+                   //COMPROBAR SI HACE FALTA
+                    valueTextView.setText(String.valueOf(cell.getValue()));
                     switch (cell.getValue()){
-                        case 1: valueTextView.setBackgroundResource(R.drawable.bloque1);
+                        case 1:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 2: valueTextView.setBackgroundResource(R.drawable.bloque2);
+                        case 2:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 3: valueTextView.setBackgroundResource(R.drawable.bloque3);
+                        case 3:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 4: valueTextView.setBackgroundResource(R.drawable.bloque4);
+                        case 4:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 5: valueTextView.setBackgroundResource(R.drawable.bloque5);
+                        case 5:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 6: valueTextView.setBackgroundResource(R.drawable.bloque6);
+                        case 6:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        case 7: valueTextView.setBackgroundResource(R.drawable.bloque7);
+                        case 7:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                             break;
-                        default: valueTextView.setBackgroundResource(R.drawable.bloque8);
+                        default:
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            valueTextView.setTextColor(color1);
                     }
 
                 }
             } else if (cell.isFlagged()) {
                 valueTextView.setBackgroundResource(R.drawable.joya_azul);
-
             }
         }
     }
