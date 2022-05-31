@@ -130,25 +130,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
                 imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas3));
         }
     }
-    /*ZOOM  *//*
-    @Override
-    public boolean onTouchEvent(MotionEvent event){
-        scaleGestureDetector.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
 
-    class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener{
-        @Override
-        public boolean onScale(ScaleGestureDetector detector){
-            FACTOR*=detector.getScaleFactor();
-            FACTOR=Math.max(0.1f, Math.min(FACTOR, 10.f));
-            gridRecyclerView.setScaleX(FACTOR);
-            gridRecyclerView.setScaleY(FACTOR);
-            return true;
-        }
-    }
-*/
-// Starting animation:- start the animation on onResume.
     @Override
     protected void onResume() {
         super.onResume();
