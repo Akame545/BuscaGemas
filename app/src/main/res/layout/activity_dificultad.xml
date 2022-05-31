@@ -21,12 +21,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp"
-        android:text="Dificil" />
+        android:text="Dificil"
+        android:onClick="desplegableDificil"/>
 
     <Button
         android:id="@+id/veryHard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="30dp"
-        android:text="Muy dificil" />
+        android:text="Muy dificil"
+        android:onClick="desplegableMuyDificil"
+        />
 </LinearLayout>
