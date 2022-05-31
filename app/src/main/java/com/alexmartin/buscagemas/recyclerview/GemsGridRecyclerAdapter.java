@@ -79,7 +79,21 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
             else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
                 if (cell.isHasGem()) {
-                    valueTextView.setBackgroundResource(R.drawable.joya_rosa);
+                    int joyas;
+                    joyas = (int) (Math.random()*3+1);
+                    switch (joyas) {
+                        case 1:
+                            itemView.setBackgroundResource(R.drawable.ic_joyaverde);
+                            break;
+                        case 2:
+                            itemView.setBackgroundResource(R.drawable.ic_joyaazul);
+                            break;
+                        default:
+                            itemView.setBackgroundResource(R.drawable.ic_joyarosa);
+                    }
+
+                    //valueTextView.setBackgroundResource(R.drawable.joya_rosa);
+                    //valueTextView.setBackgroundResource(joyas());
                 } else if (cell.getValue() == 0) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
@@ -127,4 +141,5 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
             }
         }
     }
+
 }

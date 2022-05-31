@@ -107,4 +107,9 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
+    public void openDificultad(View view) {
+        Intent intent =new Intent(MainActivity.this, Dificultad.class);
+        startActivity(intent);
+    }
 }

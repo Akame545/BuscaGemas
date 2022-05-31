@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/veinte"
+        android:title="20 Minas" />
+    <item
+        android:id="@+id/treintaCinco"
+        android:title="35 Minas" />
+    <item
+        android:id="@+id/cincuenta"
+        android:title="50 Minas" />
+</menu>
