@@ -1,5 +1,7 @@
 package com.alexmartin.buscagemas;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -8,22 +10,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.recyclerview.GemsGridRecyclerAdapter;
 import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 public class TableGame extends AppCompatActivity implements onCellClickListener {
 
     BuscaGemasGame game;
 
     ImageView imageLifes;
-    //aqui va el timer
+    TextView timer;
     ImageButton restart;
 
     RecyclerView gridRecyclerView;
@@ -38,7 +48,9 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     AnimationDrawable anim;
     int mode;
     int cuantityGems;
-
+    int seconds;
+    boolean refresh=false;
+    CountDownTimer cdt;
     //Handler handler = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +58,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         setContentView(R.layout.activity_table_game);
 
         imageLifes = findViewById(R.id.imageLifes);
+        timer = findViewById(R.id.timer);
         restart =findViewById(R.id.restart);
 
         gridRecyclerView = findViewById(R.id.activity_main_grid);
@@ -63,13 +76,19 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 //****************************************************
 
 
+
         restart.setOnClickListener(new View.OnClickListener() {
             //crearemos un nuevo juego
             @Override
             public void onClick(View view) {
-
+                progressBar.setProgress(progressBar.getMax());
+                cdt.cancel();
                 game = new BuscaGemasGame(mode, cuantityGems);
+                seconds = game.getSeconds();
+                timer.setText(String.valueOf(seconds));
+                startTimer(seconds);
                 gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
+
             }
         });
 
@@ -80,12 +99,16 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         GridLayoutManager mLayout = new GridLayoutManager(this, 10);
         gridRecyclerView.setLayoutManager(mLayout);
         game = new BuscaGemasGame(mode, cuantityGems);
+
         gemsGridRecyclerAdapter = new GemsGridRecyclerAdapter(game.getGemsGrid().getCellsList(), this);
         gridRecyclerView.setAdapter(gemsGridRecyclerAdapter);
+        seconds = game.getSeconds();
+        timer.setText(String.valueOf(seconds));
+        startTimer(seconds);
 
-        // *****************************************************************************************************************************
-        //                                              AQUI VA PROGRESSBARR
-        // *****************************************************************************************************************************
+        progressBar.setMax(game.getPicaxeDurability());
+        progressBar.setProgress(game.getPicaxeDurability());
+
 
         picaxe.setOnClickListener(v -> tool=false);
         dynamite.setOnClickListener(v -> tool=true);
@@ -102,6 +125,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 
         if (game.isGameOver()){
             imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
+            cdt.cancel();
             // *****************************************************************************************************************************
             //                                            AQUI VA EL ALERTDIALOG DE PERDER LA PARTIDA
             // *****************************************************************************************************************************
@@ -115,7 +139,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
             game.getGemsGrid().revealAllBombs();
         }
-
+        progressBar.setProgress(game.getPicaxeDurability());
         gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
     }
     private void compLifes(){
@@ -130,7 +154,21 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
                 imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas3));
         }
     }
+    private void startTimer(int startSeconds){
+        cdt = new CountDownTimer(startSeconds*1000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                seconds--;
+                timer.setText(String.valueOf(seconds));
+            }
 
+            @Override
+            public void onFinish() {
+                game.setGameOver(true);
+            }
+        }.start();
+
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -145,4 +183,20 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         if (anim != null && anim.isRunning())
             anim.stop();
     }
+    /*
+    * persistencia en fichero para cargar partida no terminada
+    *
+    *           objeto game, tiempo, durabilidad
+    *
+    * persistencia en sqlite para mostrar anteriores resultados
+    *
+    *           tiempo, modo, cantidad gemas, vidas restantes, score
+    *
+    * tutorial
+    *
+    *       viewpager2, como en el anterior proyecto, con un numero de fragmentos deslizables de izquierda a derecha con dotsindicator
+    *          cada fragmento se compone de una imagen
+    *
+    * */
+
 }

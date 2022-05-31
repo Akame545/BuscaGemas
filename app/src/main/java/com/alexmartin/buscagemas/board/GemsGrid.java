@@ -13,15 +13,18 @@ public class GemsGrid {
     //public int celdasTotales;
     public int filas;
     public int columnas;
-
     public GemsGrid(int filas, int columnas){
         this.columnas=columnas;
         this.filas=filas;
         this.cellsList=new ArrayList<>();
 
-        for (int x=0; x<filas;x++){
+        inicializeArray(filas, columnas);
+    }
+
+    private void inicializeArray(int filas, int columnas) {
+        for (int x = 0; x< filas; x++){
             //si tenemos un grid de 10x10, se añadiran al ArrayList 100 nuevas celdas vacias
-            for(int y=0; y<columnas;y++) {
+            for(int y = 0; y< columnas; y++) {
                 cellsList.add(new Cell(x, y));
             }
         }
