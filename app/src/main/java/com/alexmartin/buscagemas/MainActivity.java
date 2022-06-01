@@ -102,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
         //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
         // *****************************************************************************************************************************
         Bundle bundle = new Bundle();
-        bundle.putInt("mode",0);
-        bundle.putInt("cuantityGems", 1);
+        bundle.putInt("mode",1);
+        bundle.putInt("cuantityGems", 3);
         intent.putExtras(bundle);
         startActivity(intent);
     }

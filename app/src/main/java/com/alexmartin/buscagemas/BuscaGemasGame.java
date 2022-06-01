@@ -10,6 +10,8 @@ public class BuscaGemasGame {
     private GemsGrid gemsGrid;
     private boolean isGameOver;
     private int lifes=2;
+    private int picaxeDurability;
+    private int seconds;
     public BuscaGemasGame(int mode, int cuantityGems){
         this.isGameOver=false;
         gemsGrid = modeConfiguration(mode);
@@ -21,20 +23,31 @@ public class BuscaGemasGame {
         if (!isGameOver){
             if(tool) {
                 if (cell.isHasGem()){
+                    cell.setRevealed(true);
                     if(lifes == 0) {
                         isGameOver = true;
+
                     } else lifes--;
                 } else clear(cell);
-            } else cell.setFlagged(true);
+            } else {
+                cell.setFlagged(true);
+                picaxeDurability--;
+                if(picaxeDurability==0){
+                    isGameOver=true;
+                }
+            }
         }
     }
     private GemsGrid modeConfiguration(int mode){
         switch(mode){
             case 0:
+                this.seconds = 100;
                 return new GemsGrid(10,10);
             case 1:
+                this.seconds = 150;
                 return new GemsGrid(30,10);
             case 2:
+                this.seconds = 200;
                 return new GemsGrid(60,10);
         }
         return new GemsGrid(10,10);
@@ -93,21 +106,22 @@ public class BuscaGemasGame {
         } else return false;
     }
     private int gemsAccordingToDifficulty(int cuantityGems){
+        this.picaxeDurability=20;
         switch (cuantityGems){
             case 0:
-                return 20;
+                return 15;
             case 1:
-                return 30;
+                return 25;
             case 2:
                 return 50;
             case 3:
-                return 100;
+                return 70;
             case 4:
-                return 150;
+                return 100;
             case 5:
-                return 200;
+                return 100;
             case 6:
-                return 250;
+                return 200;
         }
         return 35;
     }
@@ -121,5 +135,17 @@ public class BuscaGemasGame {
 
     public int getLifes() {
         return lifes;
+    }
+
+    public int getPicaxeDurability() {
+        return picaxeDurability;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        isGameOver = gameOver;
     }
 }

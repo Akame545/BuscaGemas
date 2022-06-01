@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_vidas3"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="10dp"
                 />
 
 <!--            <TextView-->
@@ -44,10 +44,10 @@
 <!--                android:textSize="64sp" />-->
 
             <TextView
-                android:id="@+id/activity_main_timer"
+                android:id="@+id/timer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:text="@string/default_count"
                 android:fontFamily="@font/zendots"
                 android:textSize="48sp" />
@@ -55,7 +55,7 @@
             <ImageButton
                 android:id="@+id/restart"
                 android:layout_gravity="center"
-                android:layout_marginHorizontal="20dp"
+                android:layout_marginHorizontal="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_restart"/>
@@ -98,7 +98,7 @@
             <ImageButton
                 android:id="@+id/dynamite"
                 android:layout_marginHorizontal="50dp"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_dinamita"

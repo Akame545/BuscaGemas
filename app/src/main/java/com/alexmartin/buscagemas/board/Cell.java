@@ -11,6 +11,8 @@ public class Cell {
         this.value = 0;
         this.isRevealed = false;
         this.isFlagged = false;
+        this.x = x;
+        this.y = y;
     }
     //getters y setters para cada uno de los valores
     public int getValue() {
