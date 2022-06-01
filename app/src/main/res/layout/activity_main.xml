@@ -11,8 +11,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_fondo"
-        android:scaleType="fitXY"/>
+        />
 
     <ImageView
         android:id="@+id/logo"
@@ -69,27 +70,39 @@
         android:onClick="openGame"
         android:fontFamily="@font/zendots"
         android:textColor="#FF842B"
-
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNombre2" />
 
     <Button
-        android:id="@+id/btResultados"
+        android:id="@+id/btDificultad"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
-
         android:layout_marginTop="20dp"
         android:backgroundTint="#00ADE3"
-        android:text="Resultados"
+        android:text="Dificultad"
+        android:onClick="openDificultad"
         android:fontFamily="@font/zendots"
-
         android:textColor="#FF842B"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btPlay" />
+
+    <Button
+        android:id="@+id/btResultados"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00ADE3"
+        android:text="Resultados"
+        android:fontFamily="@font/zendots"
+        android:textColor="#FF842B"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btDificultad" />
 
     <Button
         android:id="@+id/btTutorial"

@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -129,14 +131,48 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             // *****************************************************************************************************************************
             //                                            AQUI VA EL ALERTDIALOG DE PERDER LA PARTIDA
             // *****************************************************************************************************************************
-            Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
+
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
+            builder.setPositiveButton("Aceptar", null);
+            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // do something like...
+                    Intent intent = new Intent(TableGame.this, MainActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+            //Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
             game.getGemsGrid().revealAllBombs();
         }
         if (game.isGameWon()){
             // *****************************************************************************************************************************
             //                                            AQUI VA EL ALERTDIALOG DE GANAR LA PARTIDA
             // *****************************************************************************************************************************
-            Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
+
+            builder.setPositiveButton("Si", null);
+
+            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // do something like...
+                    Intent intent = new Intent(TableGame.this, MainActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            //Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
             game.getGemsGrid().revealAllBombs();
         }
         progressBar.setProgress(game.getPicaxeDurability());
