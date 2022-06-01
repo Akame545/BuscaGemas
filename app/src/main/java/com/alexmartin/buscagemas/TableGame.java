@@ -1,7 +1,5 @@
 package com.alexmartin.buscagemas;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -18,17 +16,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.recyclerview.GemsGridRecyclerAdapter;
 import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class TableGame extends AppCompatActivity implements onCellClickListener {
 
@@ -116,7 +107,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             @Override
             public void onClick(View v) {
                 tool=false;
-               // picaxe.setImageDrawable(getDrawable(R.drawable.ic_picofondo));
+                picaxe.setImageDrawable(getDrawable(R.drawable.ic_picofondo));
                 dynamite.setImageDrawable(getDrawable(R.drawable.ic_dinamita));
             }
         });
