@@ -197,6 +197,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     *       viewpager2, como en el anterior proyecto, con un numero de fragmentos deslizables de izquierda a derecha con dotsindicator
     *          cada fragmento se compone de una imagen
     *
+    * cuando se reinicia la partida, se pongan todas las vidas
     * */
 
 }
