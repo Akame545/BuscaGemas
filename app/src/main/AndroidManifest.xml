@@ -17,9 +17,6 @@
             android:name=".TableGame"
             android:exported="false" />
         <activity
-            android:name=".Game"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="true" />
         <activity

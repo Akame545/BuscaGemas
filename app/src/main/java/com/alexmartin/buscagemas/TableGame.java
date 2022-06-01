@@ -112,8 +112,22 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         progressBar.setProgress(game.getPicaxeDurability());
 
 
-        picaxe.setOnClickListener(v -> tool=false);
-        dynamite.setOnClickListener(v -> tool=true);
+        picaxe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tool=false;
+               // picaxe.setImageDrawable(getDrawable(R.drawable.ic_picofondo));
+                dynamite.setImageDrawable(getDrawable(R.drawable.ic_dinamita));
+            }
+        });
+        dynamite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tool=true;
+                dynamite.setImageDrawable(getDrawable(R.drawable.ic_dinamitafondo));
+                picaxe.setImageDrawable(getDrawable(R.drawable.ic_pico));
+            }
+        });
     }
 
     @Override
@@ -128,14 +142,14 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         if (game.isGameOver()){
             imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
             cdt.cancel();
-            // *****************************************************************************************************************************
-            //                                            AQUI VA EL ALERTDIALOG DE PERDER LA PARTIDA
-            // *****************************************************************************************************************************
-
-
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
-            builder.setPositiveButton("Aceptar", null);
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    restart.callOnClick();
+                }
+            });
             builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -147,15 +161,9 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-
-            //Toast.makeText(getApplicationContext(), "Has Perdido",Toast.LENGTH_SHORT).show();
             game.getGemsGrid().revealAllBombs();
         }
         if (game.isGameWon()){
-            // *****************************************************************************************************************************
-            //                                            AQUI VA EL ALERTDIALOG DE GANAR LA PARTIDA
-            // *****************************************************************************************************************************
-
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
 
@@ -164,7 +172,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // do something like...
                     Intent intent = new Intent(TableGame.this, MainActivity.class);
                     startActivity(intent);
                     dialog.dismiss();
@@ -172,7 +179,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             });
             AlertDialog dialog = builder.create();
             dialog.show();
-            //Toast.makeText(getApplicationContext(), "Has Ganado!!!!",Toast.LENGTH_SHORT).show();
             game.getGemsGrid().revealAllBombs();
         }
         progressBar.setProgress(game.getPicaxeDurability());
