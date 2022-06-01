@@ -144,7 +144,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    // do something like...
                     Intent intent = new Intent(TableGame.this, MainActivity.class);
                     startActivity(intent);
                     dialog.dismiss();
