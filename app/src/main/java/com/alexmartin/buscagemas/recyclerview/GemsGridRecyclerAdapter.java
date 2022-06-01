@@ -72,69 +72,29 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
                     listener.cellClick(cell);
                 }
             });
-
-//            Toast.makeText(getActivity().getApplicationContext(), "position:"+position, Toast.LENGTH_SHORT).show();
-
             /*nos permite mostrar el valor dentro de cada celda (textView). Si comentamos el primer if y su
             else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
                 if (cell.isHasGem()) {
                     int joyas;
-                    joyas = (int) (Math.random()*3+1);
-                    switch (joyas) {
-                        case 1:
-                            itemView.setBackgroundResource(R.drawable.ic_joyaverde);
-                            break;
-                        case 2:
+
+                    switch (cell.getValue()) {
+                        case 0: case 1: case 2:
                             itemView.setBackgroundResource(R.drawable.ic_joyaazul);
+                            break;
+                        case 3: case 4:
+                            itemView.setBackgroundResource(R.drawable.ic_joyaverde);
                             break;
                         default:
                             itemView.setBackgroundResource(R.drawable.ic_joyarosa);
                     }
-
-                    //valueTextView.setBackgroundResource(R.drawable.joya_rosa);
-                    //valueTextView.setBackgroundResource(joyas());
                 } else if (cell.getValue() == 0) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                 } else {
-                    /* si la celda es un nº, este sera de un color u otro dependiendo de cual sea */
-                   //COMPROBAR SI HACE FALTA
                     valueTextView.setText(String.valueOf(cell.getValue()));
-                    switch (cell.getValue()){
-                        case 1:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 2:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 3:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 4:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 5:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 6:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        case 7:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                            break;
-                        default:
-                            itemView.setBackgroundColor(Color.TRANSPARENT);
-                            valueTextView.setTextColor(color1);
-                    }
-
+                    itemView.setBackgroundColor(Color.TRANSPARENT);
+                    valueTextView.setTextColor(color1);
                 }
             } else if (cell.isFlagged()) {
                 valueTextView.setBackgroundResource(R.drawable.joya_azul);
