@@ -97,6 +97,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#00ADE3"
         android:text="Resultados"
+        android:onClick="openResultados"
         android:fontFamily="@font/zendots"
         android:textColor="#FF842B"
         app:cornerRadius="10dp"

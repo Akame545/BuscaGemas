@@ -102,14 +102,19 @@ public class MainActivity extends AppCompatActivity {
         //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
         // *****************************************************************************************************************************
         Bundle bundle = new Bundle();
-        bundle.putInt("mode",1);
-        bundle.putInt("cuantityGems", 3);
+        bundle.putInt("mode",0);
+        bundle.putInt("cuantityGems", 1);
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
     public void openDificultad(View view) {
         Intent intent =new Intent(MainActivity.this, Dificultad.class);
+        startActivity(intent);
+    }
+
+    public void openResultados(View view) {
+        Intent intent =new Intent(MainActivity.this, ScoreActivity.class);
         startActivity(intent);
     }
 }

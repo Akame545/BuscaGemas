@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -16,13 +18,16 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.recyclerview.GemsGridRecyclerAdapter;
 import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
+import com.alexmartin.buscagemas.utilidades.Utilidades;
 
 public class TableGame extends AppCompatActivity implements onCellClickListener {
-
+    Integer ganar;
+    Integer remainingGems;
     BuscaGemasGame game;
 
     ImageView imageLifes;
@@ -133,6 +138,9 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         if (game.isGameOver()){
             imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
             cdt.cancel();
+            ganar = 0;
+            remainingGems = game.remainingGems();
+            registrarScore();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
             builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -154,6 +162,8 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             game.getGemsGrid().revealAllBombs();
         }
         if (game.isGameWon()){
+            ganar = 1;
+            registrarScore();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
 
@@ -214,6 +224,26 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         super.onPause();
         if (anim != null && anim.isRunning())
             anim.stop();
+    }
+
+    private void registrarScore(){
+        ConexionSQLiteHelper conn= new ConexionSQLiteHelper(this,"bd_score",null,1);
+        SQLiteDatabase db = conn.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put(Utilidades.CAMPO_GANAR,ganar);
+        values.put(Utilidades.CAMPO_TIEMPO,timer.getText().toString());
+        values.put(Utilidades.CAMPO_MODO,mode);
+        values.put(Utilidades.CAMPO_CANTIDAD_GEMAS,cuantityGems);
+        values.put(Utilidades.CAMPO_VIDAS_RESTANTES,game.getLifes());
+        values.put(Utilidades.CAMPO_GEMAS_RESTANTES,remainingGems);
+        values.put(Utilidades.CAMPO_FECHA,game.getDate());
+        values.put(Utilidades.CAMPO_SCORE,timer.getText().toString());
+
+        Long idResultante = db.insert(Utilidades.TABLA_SCORE,Utilidades.CAMPO_GANAR,values);
+        Toast.makeText(this,"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
+
+        db.close();
     }
     /*
     * persistencia en fichero para cargar partida no terminada
