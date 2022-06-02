@@ -1,6 +1,8 @@
 package com.alexmartin.buscagemas.board;
 
-public class Cell {
+import java.io.Serializable;
+
+public class Cell implements Serializable {
     private int value;
     private boolean isRevealed;
     private boolean isFlagged;

@@ -3,17 +3,22 @@ package com.alexmartin.buscagemas;
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.board.GemsGrid;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuscaGemasGame {
+public class BuscaGemasGame implements Serializable {
     private GemsGrid gemsGrid;
     private boolean isGameOver;
     private int lifes=2;
     private int picaxeDurability;
     private int seconds;
+    private int mode;
+    private int cuantityGems;
     public BuscaGemasGame(int mode, int cuantityGems){
         this.isGameOver=false;
+        this.mode = mode;
+        this.cuantityGems = cuantityGems;
         gemsGrid = modeConfiguration(mode);
         gemsGrid.placeGems(gemsAccordingToDifficulty(cuantityGems));
         gemsGrid.asingValues();
@@ -105,6 +110,7 @@ public class BuscaGemasGame {
             return true;
         } else return false;
     }
+
     private int gemsAccordingToDifficulty(int cuantityGems){
         this.picaxeDurability=20;
         switch (cuantityGems){
@@ -147,5 +153,13 @@ public class BuscaGemasGame {
 
     public void setGameOver(boolean gameOver) {
         isGameOver = gameOver;
+    }
+
+    public int getMode() {
+        return mode;
+    }
+
+    public int getCuantityGems() {
+        return cuantityGems;
     }
 }

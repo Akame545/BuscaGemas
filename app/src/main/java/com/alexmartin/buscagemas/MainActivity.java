@@ -3,11 +3,15 @@ package com.alexmartin.buscagemas;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1;
@@ -31,46 +35,46 @@ public class MainActivity extends AppCompatActivity {
         anim = (AnimationDrawable) container.getBackground();
         anim.setEnterFadeDuration(6000);
         anim.setExitFadeDuration(2000);
-
-        // Instanciacion y eventos onClick de Herramientas
-//        pickaxe = findViewById(R.id.button);
-//        explosive = findViewById(R.id.button);
-//        pickaxe.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                activeExplosive = false;
-//                activePickaxe = true;
-//            }
-//        });
-//        explosive.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                activeExplosive = true;
-//                activePickaxe = false;
-//            }
-//        });
-
-//        btn1 = findViewById(R.id.button);
-//        btn1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Board b = new Board(8,8,30);
-//                b.printMap();
-//                System.out.println("-------------------------------");
-//                b.printHint();
-//            }
-//        });
+        if(utilsFile(1)){
+            createAlertDialog();
+        }
     }
-
-    // Starting animation:- start the animation on onResume.
+    private void createAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_load_game, null));
+        builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(MainActivity.this, TableGame.class);
+                startActivity(intent);
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+    private Boolean utilsFile(int uf){
+        File file = new File("/data/data/com.alexmartin.buscagemas/files/save.txt");
+        switch (uf){
+            case 0:
+                if (file.delete()){
+                    file.delete();
+                    return true;
+                }
+                else return false;
+            case 1:
+                if(file.isFile())
+                    return true;
+                else return false;
+        }
+        return null;
+    }
     @Override
     protected void onResume() {
         super.onResume();
         if (anim != null && !anim.isRunning())
             anim.start();
     }
-
-    // Stopping animation:- stop the animation on onPause.
     @Override
     protected void onPause() {
         super.onPause();
@@ -78,29 +82,12 @@ public class MainActivity extends AppCompatActivity {
             anim.stop();
     }
 
-
-    //Método para comprobar que herramienta se esta usando
-//    private void checkTool(){
-//        if(activeExplosive){
-//
-//        } else {
-//
-//        }
-//    }
-    //Usar evento onTouch para
-
     public void openGame(View view) {
-
-        //VERSION ANTERIOR
-        /*Intent intent = new Intent(MainActivity.this, Game.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);*/
-
         Intent intent =new Intent(MainActivity.this, TableGame.class);
         // *****************************************************************************************************************************
         //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
         // *****************************************************************************************************************************
+        utilsFile(0);
         Bundle bundle = new Bundle();
         bundle.putInt("mode",1);
         bundle.putInt("cuantityGems", 3);
@@ -112,4 +99,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent =new Intent(MainActivity.this, Dificultad.class);
         startActivity(intent);
     }
+
 }

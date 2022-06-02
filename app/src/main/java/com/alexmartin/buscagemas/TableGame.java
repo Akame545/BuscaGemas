@@ -11,15 +11,25 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.recyclerview.GemsGridRecyclerAdapter;
 import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
 
 public class TableGame extends AppCompatActivity implements onCellClickListener {
 
@@ -80,27 +90,48 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
                 seconds = game.getSeconds();
                 timer.setText(String.valueOf(seconds));
                 startTimer(seconds);
+                compLifes();
                 gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
 
             }
         });
 
         //INICIAR RECYCLERVIEW EN LA ACTIVIDAD
-        mode = (int) getIntent().getExtras().get("mode");
-        cuantityGems = (int) getIntent().getExtras().get("cuantityGems");
+        if(getIntent().getExtras()!=null) {
+            mode = (int) getIntent().getExtras().get("mode");
+            cuantityGems = (int) getIntent().getExtras().get("cuantityGems");
+        }
 
         GridLayoutManager mLayout = new GridLayoutManager(this, 10);
         gridRecyclerView.setLayoutManager(mLayout);
-        game = new BuscaGemasGame(mode, cuantityGems);
 
+        if(utilsFile(1)){
+            loadFile();
+            utilsFile(0);
+        } else {
+
+            game = new BuscaGemasGame(mode, cuantityGems);
+            seconds = game.getSeconds();
+            progressBar.setMax(game.getPicaxeDurability());
+            progressBar.setProgress(game.getPicaxeDurability());
+        }
+        if(game == null) {
+            game = new BuscaGemasGame(mode, cuantityGems);
+            Toast.makeText(this,"No se ha podido cargar la partida empezada",Toast.LENGTH_SHORT).show();
+        }
+        mode = game.getMode();
+        cuantityGems = game.getCuantityGems();
+        compLifes();
         gemsGridRecyclerAdapter = new GemsGridRecyclerAdapter(game.getGemsGrid().getCellsList(), this);
         gridRecyclerView.setAdapter(gemsGridRecyclerAdapter);
-        seconds = game.getSeconds();
+
+
         timer.setText(String.valueOf(seconds));
         startTimer(seconds);
 
-        progressBar.setMax(game.getPicaxeDurability());
-        progressBar.setProgress(game.getPicaxeDurability());
+
+
+
 
 
         picaxe.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +183,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             AlertDialog dialog = builder.create();
             dialog.show();
             game.getGemsGrid().revealAllBombs();
+
         }
         if (game.isGameWon()){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -201,6 +233,71 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         }.start();
 
     }
+    //*************************************************************************************
+    private void saveFile(){
+        FileOutputStream fileOutputStream = null;
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("game", game);
+        data.put("progressBar", progressBar.getProgress());
+        data.put("seconds", seconds);
+        try {
+            fileOutputStream = openFileOutput("save.txt", MODE_PRIVATE);
+            ObjectOutputStream pipe = new ObjectOutputStream(fileOutputStream);
+            pipe.writeObject(data);
+            pipe.close();
+        } catch (Exception e){
+            Toast.makeText(this,"No se ha podido guardar el fichero",Toast.LENGTH_SHORT).show();
+        } finally {
+            if(fileOutputStream != null){
+                try{
+                    fileOutputStream.close();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private void loadFile(){
+        FileInputStream fileInputStream = null;
+        HashMap<String, Object> data = new HashMap<>();
+        try{
+            fileInputStream = openFileInput("save.txt");
+            ObjectInputStream pipe = new ObjectInputStream(fileInputStream);
+
+            data = (HashMap<String, Object>) pipe.readObject();
+            game = (BuscaGemasGame) data.get("game");
+            progressBar.setMax(game.getPicaxeDurability());
+            progressBar.setProgress((int) (data.get("progressBar")));
+            seconds = (int) data.get("seconds");
+            pipe.close();
+        } catch (Exception e){
+            Toast.makeText(this,"No se ha podido guardar el fichero",Toast.LENGTH_SHORT).show();
+        } finally {
+            if(fileInputStream != null){
+                try{
+                    fileInputStream.close();
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    private Boolean utilsFile(int uf){
+        File file = new File("/data/data/com.alexmartin.buscagemas/files/save.txt");
+        switch (uf){
+            case 0:
+                if (file.delete()){
+                    file.delete();
+                    return true;
+                }
+                else return false;
+            case 1:
+                if(file.isFile())
+                    return true;
+                else return false;
+        }
+        return null;
+    }
     @Override
     protected void onResume() {
         super.onResume();
@@ -212,8 +309,16 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     @Override
     protected void onPause() {
         super.onPause();
+        saveFile();
         if (anim != null && anim.isRunning())
             anim.stop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveFile();
+
     }
     /*
     * persistencia en fichero para cargar partida no terminada
@@ -228,8 +333,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     *
     *       viewpager2, como en el anterior proyecto, con un numero de fragmentos deslizables de izquierda a derecha con dotsindicator
     *          cada fragmento se compone de una imagen
-    *
-    * cuando se reinicia la partida, se pongan todas las vidas
     * */
 
 }
