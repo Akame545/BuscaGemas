@@ -14,4 +14,23 @@
     <string name="flag">🚩</string>
     <string name="bomb">💣</string>
     <string name="default_count">000</string>
+
+    <string name="descriptionFragment1">El obejtivo de este juego es revelar todas las casillas que
+        no tienen gemas. La primera celda que cliques puede tener una gema o un número.
+        Ten en cuenta que cada vez que cliques una gema se te restará una vida. Cada número
+        representa la cantidad de celdas adyacentes que tienen una gema.</string>
+
+    <string name="descriptionFragment2">La función del pico te permite señalizar una celda
+    donde tú crees que hay una gema. Además, la dinamita permite revelar una celda y de este
+    modo comprobar si es una gema o un número.</string>
+
+    <string name="descriptionFragment3">Una condición de derrota son las vidas: si te equivocas
+        tres veces al revelar una celda pierdes. También existe la posibilidad de que pierdas la
+        partida por tiempo, éste se puede ver a través de un contador en la parte superior central.</string>
+
+    <string name="descriptionFragment4">Por último recuerda que la cuadrícula de celdas tiene más tamaño
+        del que se puede apreciar a primera vista. Hay que deslizar hacia arriba para poder seguir 
+    jugando. ¡Suerte!</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

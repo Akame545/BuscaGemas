@@ -9,9 +9,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.alexmartin.buscagemas.tutorial.TutorialActivity;
+import com.alexmartin.buscagemas.tutorial.fragments.Fragment1;
+
 public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button pickaxe;
+
 
     Button explosive;
 //    Boolean activeExplosive = true;
@@ -103,13 +107,18 @@ public class MainActivity extends AppCompatActivity {
         // *****************************************************************************************************************************
         Bundle bundle = new Bundle();
         bundle.putInt("mode",1);
-        bundle.putInt("cuantityGems", 3);
+        bundle.putInt("cuantityGems", 2);
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
     public void openDificultad(View view) {
         Intent intent =new Intent(MainActivity.this, Dificultad.class);
+        startActivity(intent);
+    }
+
+    public void openTutorial(View view) {
+        Intent intent=new Intent(MainActivity.this, TutorialActivity.class);
         startActivity(intent);
     }
 }

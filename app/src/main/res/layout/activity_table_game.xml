@@ -91,7 +91,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="50dp"
                 android:src="@drawable/ic_dinamitafondo"
-                android:background=""/>
+                android:background="@color/alpha"/>
 
             <ImageButton
                 android:id="@+id/picaxe"
@@ -100,7 +100,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="50dp"
                 android:src="@drawable/ic_pico"
-                android:background=""/>
+                android:background="@color/alpha"/>
 
         </LinearLayout>
     </LinearLayout>

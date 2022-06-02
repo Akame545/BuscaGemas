@@ -112,7 +112,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#00ADE3"
 
-
+        android:onClick="openTutorial"
         android:text="Tutorial"
         android:fontFamily="@font/zendots"
         android:textColor="#FF842B"
