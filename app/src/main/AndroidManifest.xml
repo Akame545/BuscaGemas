@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BuscaGemasSinActionBar">
         <activity
+            android:name=".ScoreActivity"
+            android:exported="false" />
+        <activity
             android:name=".Dificultad"
             android:exported="false" />
         <activity

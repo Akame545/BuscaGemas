@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         // *****************************************************************************************************************************
         utilsFile(0);
         Bundle bundle = new Bundle();
-        bundle.putInt("mode",1);
-        bundle.putInt("cuantityGems", 3);
+        bundle.putInt("mode",0);
+        bundle.putInt("cuantityGems", 1);
         intent.putExtras(bundle);
         startActivity(intent);
     }
@@ -100,4 +100,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openResultados(View view) {
+        Intent intent =new Intent(MainActivity.this, ScoreActivity.class);
+        startActivity(intent);
+    }
 }

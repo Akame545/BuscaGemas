@@ -2,10 +2,12 @@ package com.alexmartin.buscagemas;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.board.GemsGrid;
-
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class BuscaGemasGame implements Serializable {
     private GemsGrid gemsGrid;
@@ -110,7 +112,21 @@ public class BuscaGemasGame implements Serializable {
             return true;
         } else return false;
     }
+    public int remainingGems(){
+        int remainingGems=0;
+        for (Cell c: getGemsGrid().getCellsList()){
+            if(c.isHasGem() && !c.isRevealed()){
+                remainingGems++;
+            }
+        }
+        return remainingGems;
+    }
 
+    public String getDate() {             // se vería así: miercoles 26/09/2018 05:30 p.m.
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
     private int gemsAccordingToDifficulty(int cuantityGems){
         this.picaxeDurability=20;
         switch (cuantityGems){
@@ -130,6 +146,9 @@ public class BuscaGemasGame implements Serializable {
                 return 200;
         }
         return 35;
+    }
+    public void cleanGemsGrid(){
+        gemsGrid=null;
     }
     public GemsGrid getGemsGrid(){
         return gemsGrid;
@@ -161,5 +180,9 @@ public class BuscaGemasGame implements Serializable {
 
     public int getCuantityGems() {
         return cuantityGems;
+    }
+
+    public void setGemsGrid(GemsGrid gemsGrid) {
+        this.gemsGrid = gemsGrid;
     }
 }
