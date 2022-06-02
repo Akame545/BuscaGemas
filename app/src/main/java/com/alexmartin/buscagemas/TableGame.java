@@ -250,8 +250,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 //        for (int i=0; i<game.getGemsGrid().getCellsList().size(); i++){
 //            data.put(String.valueOf(i),game.getGemsGrid().getCellsList().get(i));
 //        }
-        data.put("gemsGrid",game.getGemsGrid());
-        game.cleanGemsGrid();
+
         data.put("game", game);
         data.put("progressBar", progressBar.getProgress());
         data.put("seconds", seconds);
@@ -281,7 +280,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 
             data = (HashMap<String, Object>) pipe.readObject();
             game = (BuscaGemasGame) data.get("game");
-            game.setGemsGrid((GemsGrid) data.get("gemsGrid"));
             progressBar.setMax(game.getPicaxeDurability());
             progressBar.setProgress((int) (data.get("progressBar")));
             seconds = (int) data.get("seconds");
@@ -326,6 +324,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     @Override
     protected void onPause() {
         super.onPause();
+        saveFile();
         if (anim != null && anim.isRunning())
             anim.stop();
     }

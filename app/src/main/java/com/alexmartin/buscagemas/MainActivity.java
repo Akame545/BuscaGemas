@@ -10,12 +10,15 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import java.io.File;
+
+import com.alexmartin.buscagemas.tutorial.TutorialActivity;
+import com.alexmartin.buscagemas.tutorial.fragments.Fragment1;
 
 public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button pickaxe;
+
 
     Button explosive;
 //    Boolean activeExplosive = true;
@@ -101,7 +104,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openResultados(View view) {
-        Intent intent =new Intent(MainActivity.this, ScoreActivity.class);
+        Intent intent = new Intent(MainActivity.this, ScoreActivity.class);
+        startActivity(intent);
+    }
+    public void openTutorial(View view) {
+        Intent intent=new Intent(MainActivity.this, TutorialActivity.class);
         startActivity(intent);
     }
 }
