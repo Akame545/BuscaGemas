@@ -59,7 +59,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     int seconds;
     boolean refresh=false;
     CountDownTimer cdt;
-    //Handler handler = new Handler();
+    int score;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,10 +77,10 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         picaxe = findViewById(R.id.picaxe);
 
 //**************************************************
-        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.tableGame);
-        anim = (AnimationDrawable) container.getBackground();
-        anim.setEnterFadeDuration(7000);
-        anim.setExitFadeDuration(2000);
+//        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.tableGame);
+//        anim = (AnimationDrawable) container.getBackground();
+//        anim.setEnterFadeDuration(7000);
+//        anim.setExitFadeDuration(2000);
 //****************************************************
 
 
@@ -166,35 +166,10 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 
         compLifes();
 
-        if (game.isGameOver()){
-            imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
-            cdt.cancel();
-            ganar = 0;
-            remainingGems = game.remainingGems();
-            registrarScore();
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
-            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    restart.callOnClick();
-                }
-            });
-            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(TableGame.this, MainActivity.class);
-                    startActivity(intent);
-                    dialog.dismiss();
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            game.getGemsGrid().revealAllBombs();
-
-        }
+        compGameOver();
         if (game.isGameWon()){
             ganar = 1;
+            compScore();
             registrarScore();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
@@ -228,17 +203,62 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
                 imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas3));
         }
     }
+    private void compGameOver(){
+        if (game.isGameOver()){
+            imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
+            ganar = 0;
+            remainingGems = game.remainingGems();
+            compScore();
+            score-=100;
+            registrarScore();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    restart.callOnClick();
+                }
+            });
+            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(TableGame.this, MainActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            game.getGemsGrid().revealAllBombs();
+
+        }
+    }
+    private void compScore(){
+        score=0;
+        score = game.calculateScore();
+        switch (game.getLifes()){
+            case 1:
+                score += 200;
+                break;
+            case 0:
+                score += 100;
+                break;
+            default:
+                score += 300;
+        }
+        score += Integer.valueOf(timer.getText().toString());
+    }
     private void startTimer(int startSeconds){
         cdt = new CountDownTimer(startSeconds*1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                seconds--;
-                timer.setText(String.valueOf(seconds));
+                timer.setText(String.valueOf(millisUntilFinished/1000));
             }
 
             @Override
             public void onFinish() {
                 game.setGameOver(true);
+                compGameOver();
             }
         }.start();
 
@@ -333,6 +353,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     protected void onDestroy() {
         super.onDestroy();
         saveFile();
+        cdt.cancel();
     }
     private void registrarScore(){
         ConexionSQLiteHelper conn= new ConexionSQLiteHelper(this,"bd_score",null,1);
@@ -346,7 +367,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         values.put(Utilidades.CAMPO_VIDAS_RESTANTES,game.getLifes());
         values.put(Utilidades.CAMPO_GEMAS_RESTANTES,remainingGems);
         values.put(Utilidades.CAMPO_FECHA,game.getDate());
-        values.put(Utilidades.CAMPO_SCORE,timer.getText().toString());
+        values.put(Utilidades.CAMPO_SCORE,score);
 
         Long idResultante = db.insert(Utilidades.TABLA_SCORE,Utilidades.CAMPO_GANAR,values);
         Toast.makeText(this,"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
