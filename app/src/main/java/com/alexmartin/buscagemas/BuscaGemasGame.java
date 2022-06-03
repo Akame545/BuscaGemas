@@ -37,7 +37,12 @@ public class BuscaGemasGame implements Serializable {
                     } else lifes--;
                 } else clear(cell);
             } else {
-                cell.setFlagged(true);
+                if(cell.isFlagged()){
+                    cell.setFlagged(false);
+                } else cell.setFlagged(true);
+                if(!cell.isHasGem()){
+                    cell.setRevealed(true);
+                }
                 picaxeDurability--;
                 if(picaxeDurability==0){
                     isGameOver=true;
@@ -104,18 +109,21 @@ public class BuscaGemasGame implements Serializable {
     public boolean isGameWon(){
         int cellsUnrevealed=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(!c.isHasGem() && c.getValue() == 0 && !c.isRevealed()){
+            if(!c.isRevealed()){
                 cellsUnrevealed++;
             }
+            if(c.isHasGem() && c.isFlagged()){
+                cellsUnrevealed--;
+            }
         }
-        if (cellsUnrevealed == 0){
+        if (cellsUnrevealed < 0){
             return true;
         } else return false;
     }
     public int remainingGems(){
         int remainingGems=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(c.isHasGem() && !c.isRevealed()){
+            if(c.isHasGem() && c.isRevealed()){
                 remainingGems++;
             }
         }
@@ -123,17 +131,17 @@ public class BuscaGemasGame implements Serializable {
     }
 
     public String getDate() {             // se vería así: miercoles 26/09/2018 05:30 p.m.
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
-    private int gemsAccordingToDifficulty(int cuantityGems){
+    public int gemsAccordingToDifficulty(int cuantityGems){
         this.picaxeDurability=20;
         switch (cuantityGems){
             case 0:
-                return 15;
+                return 10;
             case 1:
-                return 25;
+                return 20;
             case 2:
                 return 50;
             case 3:
@@ -146,9 +154,6 @@ public class BuscaGemasGame implements Serializable {
                 return 200;
         }
         return 35;
-    }
-    public void cleanGemsGrid(){
-        gemsGrid=null;
     }
     public GemsGrid getGemsGrid(){
         return gemsGrid;

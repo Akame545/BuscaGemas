@@ -1,15 +1,23 @@
 package com.alexmartin.buscagemas;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import java.io.File;
 
 import com.alexmartin.buscagemas.tutorial.TutorialActivity;
@@ -27,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     Button restart;
 
     AnimationDrawable anim;
-
+    ActivityResultLauncher<Intent> my_ActivityResultLauncher;
+    int mode=0;
+    int cuantityGems=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +51,24 @@ public class MainActivity extends AppCompatActivity {
         if(utilsFile(1)){
             createAlertDialog();
         }
+        my_ActivityResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                new ActivityResultCallback<ActivityResult>() {
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        if (result.getResultCode() == Activity.RESULT_OK) {
+                            Intent my_intent_vuelta = result.getData();
+                            Bundle bundleVuelta = my_intent_vuelta.getBundleExtra("Bundle");
+                            mode = (int) bundleVuelta.get("mode");
+                            cuantityGems = (int) bundleVuelta.get("cuantityGems");
+                        }
+                        else if(result.getResultCode() == Activity.RESULT_CANCELED){
+                            Context context = getApplicationContext();
+                            Toast.makeText(MainActivity.this, "Se ha establecido la dificultad por defecto", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }
+        );
     }
     private void createAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -87,20 +115,17 @@ public class MainActivity extends AppCompatActivity {
 
     public void openGame(View view) {
         Intent intent =new Intent(MainActivity.this, TableGame.class);
-        // *****************************************************************************************************************************
-        //                                              HAY QUE HACER UN SELECTOR DE DIFICULTAD
-        // *****************************************************************************************************************************
         utilsFile(0);
         Bundle bundle = new Bundle();
-        bundle.putInt("mode",0);
-        bundle.putInt("cuantityGems", 1);
+        bundle.putInt("mode",mode);
+        bundle.putInt("cuantityGems", cuantityGems);
         intent.putExtras(bundle);
         startActivity(intent);
     }
 
     public void openDificultad(View view) {
         Intent intent =new Intent(MainActivity.this, Dificultad.class);
-        startActivity(intent);
+        my_ActivityResultLauncher.launch(intent);
     }
 
     public void openResultados(View view) {

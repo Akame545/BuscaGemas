@@ -342,7 +342,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         values.put(Utilidades.CAMPO_GANAR,ganar);
         values.put(Utilidades.CAMPO_TIEMPO,timer.getText().toString());
         values.put(Utilidades.CAMPO_MODO,mode);
-        values.put(Utilidades.CAMPO_CANTIDAD_GEMAS,cuantityGems);
+        values.put(Utilidades.CAMPO_CANTIDAD_GEMAS,game.gemsAccordingToDifficulty(cuantityGems));
         values.put(Utilidades.CAMPO_VIDAS_RESTANTES,game.getLifes());
         values.put(Utilidades.CAMPO_GEMAS_RESTANTES,remainingGems);
         values.put(Utilidades.CAMPO_FECHA,game.getDate());

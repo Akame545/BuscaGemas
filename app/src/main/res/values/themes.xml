@@ -18,14 +18,16 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
     <style name="Theme.BuscaGemasSinActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/azulado</item>
-        <item name="colorPrimaryVariant">@color/gris</item>
+        <item name="colorPrimary">@color/dos</item>
+        <item name="colorPrimaryVariant">#6e3d3b</item>
         <item name="colorOnPrimary">@color/beage</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/amarillo</item>
-        <item name="colorSecondaryVariant">@color/marron</item>
+        <item name="colorSecondary">@color/tres</item>
+        <item name="colorSecondaryVariant">#c35132</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

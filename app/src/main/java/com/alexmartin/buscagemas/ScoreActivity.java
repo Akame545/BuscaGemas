@@ -13,6 +13,7 @@ import com.alexmartin.buscagemas.entidades.Score;
 import com.alexmartin.buscagemas.utilidades.Utilidades;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ScoreActivity extends AppCompatActivity {
 
@@ -31,7 +32,7 @@ public class ScoreActivity extends AppCompatActivity {
         recyclerScore.setLayoutManager(new LinearLayoutManager(this));
 
         consultarListaScore();
-
+        Collections.reverse(listScore);
         ScoreAdapter adapter = new ScoreAdapter(listScore);
         recyclerScore.setAdapter(adapter);
     }
