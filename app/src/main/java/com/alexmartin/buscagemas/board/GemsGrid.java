@@ -1,11 +1,12 @@
 package com.alexmartin.buscagemas.board;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 //CLASE QUE REPRESENTA LA CUADRICULA DE MINAS
-public class GemsGrid {
+public class GemsGrid implements Serializable {
     //en este arrayList se meteran cada una de las celdas del grid
     private ArrayList<Cell> cellsList;
     //el tamaño es el número de cuadrados en las filas y columnas
@@ -33,7 +34,6 @@ public class GemsGrid {
     /* comprueba si el nº de bombas metidas es menor que el numero total de bombas que necesitamos meter.
         En caso de ser afirmativo se meten las necesarias   */
     public void placeGems(int totalGems) {
-        System.out.println("Entra en placeGems");
         int gemsPlaced = 0;
         while (gemsPlaced < totalGems) {
             int x = new Random().nextInt(filas);
