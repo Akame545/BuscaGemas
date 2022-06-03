@@ -97,7 +97,7 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
                     valueTextView.setTextColor(color1);
                 }
             } else if (cell.isFlagged()) {
-                valueTextView.setBackgroundResource(R.drawable.joya_azul);
+                itemView.setBackgroundResource(R.drawable.ic_joyaazulrota);
             }
         }
     }

@@ -10,6 +10,7 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -26,6 +27,7 @@ import com.alexmartin.buscagemas.board.GemsGrid;
 import com.alexmartin.buscagemas.recyclerview.GemsGridRecyclerAdapter;
 import com.alexmartin.buscagemas.recyclerview.onCellClickListener;
 import com.alexmartin.buscagemas.utilidades.Utilidades;
+
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -172,6 +174,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             ganar = 0;
             remainingGems = game.remainingGems();
             registrarScore();
+
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
             builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
