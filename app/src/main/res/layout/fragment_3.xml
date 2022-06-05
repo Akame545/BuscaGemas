@@ -32,18 +32,5 @@
 
         />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSalir"
-        android:text="Salir"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:textColor="#FF842B"
 
-        app:layout_constraintTop_toBottomOf="@id/tvDescripcion3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="50dp"
-        />
 </androidx.constraintlayout.widget.ConstraintLayout>

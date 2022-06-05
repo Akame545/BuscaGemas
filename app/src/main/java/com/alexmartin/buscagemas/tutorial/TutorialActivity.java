@@ -12,11 +12,12 @@ import com.alexmartin.buscagemas.R;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment1;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment2;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment3;
+import com.alexmartin.buscagemas.tutorial.fragments.Fragment4;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 public class TutorialActivity extends FragmentActivity {
     //Dicta el número de paginas
-    private static final int NUM_PAGES = 3;
+    private static final int NUM_PAGES = 4;
     //Pager widget, que otorga animacion y posibilidad de swipear lateralmente
     private ViewPager2 view_pager;
     //El adapter que provee las páginas al ViewPager
@@ -52,8 +53,9 @@ public class TutorialActivity extends FragmentActivity {
                     return new Fragment2();
                 case 2:
                     return new Fragment3();
-                /*case 3:
+                case 3:
                     return new Fragment4();
+                    /*
                 case 4:
                     return new Fragment5();
                 case 5:
