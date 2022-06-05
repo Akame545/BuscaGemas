@@ -61,28 +61,20 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
 
         public void bind(final Cell cell, int position) {
             int color1 = valueTextView.getResources().getColor(R.color.beage);
-            int color2 = valueTextView.getResources().getColor(R.color.azulado);
             itemView.setBackgroundResource(R.drawable.ic_roca);
-            //valueTextView.setBackgroundResource(R.drawable.ic_roca);
-            //itemView.setBackgroundResource(R.drawable.roca);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     listener.cellClick(cell);
                 }
             });
-            /*nos permite mostrar el valor dentro de cada celda (textView). Si comentamos el primer if y su
-            else podremos ver el valor de cada celda*/
             if (cell.isRevealed()) {
                 if (cell.isHasGem()) {
-                    int joyas;
-
                     switch (cell.getValue()) {
-                        case 0: case 1: case 2:
+                        case 0: case 1:
                             itemView.setBackgroundResource(R.drawable.ic_joyaazul);
                             break;
-                        case 3: case 4:
+                        case 2: case 3:
                             itemView.setBackgroundResource(R.drawable.ic_joyaverde);
                             break;
                         default:
@@ -97,9 +89,8 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
                     valueTextView.setTextColor(color1);
                 }
             } else if (cell.isFlagged()) {
-                valueTextView.setBackgroundResource(R.drawable.joya_azul);
+
             }
         }
     }
-
 }

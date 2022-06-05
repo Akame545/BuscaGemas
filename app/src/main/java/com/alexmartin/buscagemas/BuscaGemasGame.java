@@ -25,7 +25,7 @@ public class BuscaGemasGame implements Serializable {
         gemsGrid.placeGems(gemsAccordingToDifficulty(cuantityGems));
         gemsGrid.asingValues();
     }
-    //public void generate
+
     public void handleCellClick(Cell cell, Boolean tool) {
         if (!isGameOver){
             if(tool) {
@@ -33,13 +33,12 @@ public class BuscaGemasGame implements Serializable {
                     cell.setRevealed(true);
                     if(lifes == 0) {
                         isGameOver = true;
-
                     } else lifes--;
                 } else clear(cell);
             } else {
-                if(cell.isFlagged()){
-                    cell.setFlagged(false);
-                } else cell.setFlagged(true);
+
+                cell.setRevealed(true);
+                cell.setFlagged(true);
                 if(!cell.isHasGem()){
                     cell.setRevealed(true);
                 }
@@ -109,14 +108,11 @@ public class BuscaGemasGame implements Serializable {
     public boolean isGameWon(){
         int cellsUnrevealed=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(!c.isRevealed()){
+            if(!c.isHasGem() && !c.isRevealed()){
                 cellsUnrevealed++;
             }
-            if(c.isHasGem() && c.isFlagged()){
-                cellsUnrevealed--;
-            }
         }
-        if (cellsUnrevealed < 0){
+        if (cellsUnrevealed == 0){
             return true;
         } else return false;
     }
@@ -135,22 +131,51 @@ public class BuscaGemasGame implements Serializable {
         Date date = new Date();
         return dateFormat.format(date);
     }
+    public int calculateScore(){
+        int score=0;
+        for (Cell c: getGemsGrid().getCellsList()){
+            if(c.isRevealed()){
+                score++;
+            }
+            if(c.isHasGem() && c.isFlagged()){
+                switch (c.getValue()) {
+                    case 0: case 1:
+                        score+=2;
+                        break;
+                    case 2: case 3:
+                        score+=5;
+                        break;
+                    default:
+                        score+=10;
+                }
+            }
+        }
+        score += picaxeDurability*3;
+        return score;
+    }
     public int gemsAccordingToDifficulty(int cuantityGems){
-        this.picaxeDurability=20;
+
         switch (cuantityGems){
             case 0:
+                this.picaxeDurability=12;
                 return 10;
             case 1:
+                this.picaxeDurability=22;
                 return 20;
             case 2:
-                return 50;
+                this.picaxeDurability=35;
+                return 30;
             case 3:
+                this.picaxeDurability=78;
                 return 70;
             case 4:
+                this.picaxeDurability=108;
                 return 100;
             case 5:
+                this.picaxeDurability=110;
                 return 100;
             case 6:
+                this.picaxeDurability=210;
                 return 200;
         }
         return 35;

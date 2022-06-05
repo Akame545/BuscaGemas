@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -59,11 +60,15 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     int seconds;
     boolean refresh=false;
     CountDownTimer cdt;
-    //Handler handler = new Handler();
+    int score;
+
+    private MediaPlayer au_picaxe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_game);
+
+        au_picaxe = MediaPlayer.create(this,R.raw.a_pickaxe);
 
         imageLifes = findViewById(R.id.imageLifes);
         timer = findViewById(R.id.timer);
@@ -77,13 +82,11 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         picaxe = findViewById(R.id.picaxe);
 
 //**************************************************
-        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.tableGame);
-        anim = (AnimationDrawable) container.getBackground();
-        anim.setEnterFadeDuration(7000);
-        anim.setExitFadeDuration(2000);
+//        ConstraintLayout container = (ConstraintLayout) findViewById(R.id.tableGame);
+//        anim = (AnimationDrawable) container.getBackground();
+//        anim.setEnterFadeDuration(7000);
+//        anim.setExitFadeDuration(2000);
 //****************************************************
-
-
 
         restart.setOnClickListener(new View.OnClickListener() {
             //crearemos un nuevo juego
@@ -162,15 +165,58 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 
         if(tool){
             game.handleCellClick(cell,true);
-        } else game.handleCellClick(cell,false);
+        } else {
+            au_picaxe.start();
+            game.handleCellClick(cell,false);
+        }
 
         compLifes();
 
+        compGameOver();
+        if (game.isGameWon()){
+            ganar = 1;
+            compScore();
+            registrarScore();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
+
+            builder.setPositiveButton("Si", null);
+
+            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(TableGame.this, MainActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            game.getGemsGrid().revealAllBombs();
+            cdt.cancel();
+        }
+        progressBar.setProgress(game.getPicaxeDurability());
+        gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
+    }
+    private void compLifes(){
+        switch (game.getLifes()){
+            case 1:
+                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas2));
+                break;
+            case 0:
+                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas1));
+                break;
+            default:
+                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas3));
+        }
+    }
+    private void compGameOver(){
         if (game.isGameOver()){
             imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas0));
-            cdt.cancel();
             ganar = 0;
             remainingGems = game.remainingGems();
+            compScore();
+            score-=100;
             registrarScore();
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_lost, null));
@@ -193,52 +239,33 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             game.getGemsGrid().revealAllBombs();
 
         }
-        if (game.isGameWon()){
-            ganar = 1;
-            registrarScore();
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setView(getLayoutInflater().inflate(R.layout.alert_dialog_win, null));
-
-            builder.setPositiveButton("Si", null);
-
-            builder.setNegativeButton("Volver al menu principal", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(TableGame.this, MainActivity.class);
-                    startActivity(intent);
-                    dialog.dismiss();
-                }
-            });
-            AlertDialog dialog = builder.create();
-            dialog.show();
-            game.getGemsGrid().revealAllBombs();
-        }
-        progressBar.setProgress(game.getPicaxeDurability());
-        gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
     }
-    private void compLifes(){
+    private void compScore(){
+        score=0;
+        score = game.calculateScore();
         switch (game.getLifes()){
             case 1:
-                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas2));
+                score += 200;
                 break;
             case 0:
-                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas1));
+                score += 100;
                 break;
             default:
-                imageLifes.setImageDrawable(getDrawable(R.drawable.ic_vidas3));
+                score += 300;
         }
+        score += Integer.valueOf(timer.getText().toString());
     }
     private void startTimer(int startSeconds){
         cdt = new CountDownTimer(startSeconds*1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                seconds--;
-                timer.setText(String.valueOf(seconds));
+                timer.setText(String.valueOf(millisUntilFinished/1000));
             }
 
             @Override
             public void onFinish() {
                 game.setGameOver(true);
+                compGameOver();
             }
         }.start();
 
@@ -333,6 +360,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     protected void onDestroy() {
         super.onDestroy();
         saveFile();
+        cdt.cancel();
     }
     private void registrarScore(){
         ConexionSQLiteHelper conn= new ConexionSQLiteHelper(this,"bd_score",null,1);
@@ -346,7 +374,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         values.put(Utilidades.CAMPO_VIDAS_RESTANTES,game.getLifes());
         values.put(Utilidades.CAMPO_GEMAS_RESTANTES,remainingGems);
         values.put(Utilidades.CAMPO_FECHA,game.getDate());
-        values.put(Utilidades.CAMPO_SCORE,timer.getText().toString());
+        values.put(Utilidades.CAMPO_SCORE,score);
 
         Long idResultante = db.insert(Utilidades.TABLA_SCORE,Utilidades.CAMPO_GANAR,values);
         Toast.makeText(this,"Id Registro: "+idResultante,Toast.LENGTH_SHORT).show();
