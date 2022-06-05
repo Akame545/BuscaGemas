@@ -36,6 +36,7 @@ public class BuscaGemasGame implements Serializable {
                     } else lifes--;
                 } else clear(cell);
             } else {
+
                 cell.setRevealed(true);
                 cell.setFlagged(true);
                 if(!cell.isHasGem()){
@@ -107,14 +108,11 @@ public class BuscaGemasGame implements Serializable {
     public boolean isGameWon(){
         int cellsUnrevealed=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(!c.isRevealed()){
+            if(!c.isHasGem() && !c.isRevealed()){
                 cellsUnrevealed++;
             }
-            if(c.isHasGem() && c.isFlagged()){
-                cellsUnrevealed--;
-            }
         }
-        if (cellsUnrevealed < 0){
+        if (cellsUnrevealed == 0){
             return true;
         } else return false;
     }

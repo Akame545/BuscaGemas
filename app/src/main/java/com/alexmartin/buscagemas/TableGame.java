@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -60,10 +61,14 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     boolean refresh=false;
     CountDownTimer cdt;
     int score;
+
+    private MediaPlayer au_picaxe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_game);
+
+        au_picaxe = MediaPlayer.create(this,R.raw.a_pickaxe);
 
         imageLifes = findViewById(R.id.imageLifes);
         timer = findViewById(R.id.timer);
@@ -82,8 +87,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 //        anim.setEnterFadeDuration(7000);
 //        anim.setExitFadeDuration(2000);
 //****************************************************
-
-
 
         restart.setOnClickListener(new View.OnClickListener() {
             //crearemos un nuevo juego
@@ -162,7 +165,10 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
 
         if(tool){
             game.handleCellClick(cell,true);
-        } else game.handleCellClick(cell,false);
+        } else {
+            au_picaxe.start();
+            game.handleCellClick(cell,false);
+        }
 
         compLifes();
 
@@ -187,6 +193,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             AlertDialog dialog = builder.create();
             dialog.show();
             game.getGemsGrid().revealAllBombs();
+            cdt.cancel();
         }
         progressBar.setProgress(game.getPicaxeDurability());
         gemsGridRecyclerAdapter.setCells(game.getGemsGrid().getCellsList());
