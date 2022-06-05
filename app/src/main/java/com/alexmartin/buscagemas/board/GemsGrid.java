@@ -30,7 +30,8 @@ public class GemsGrid {
         }
     }
 
-    /* comprueba si el nº de bombas metidas es menor que el numero total de bombas que necesitamos meter.
+    /* comprueba si el nº de bombas metidas es menor que el numero total
+     de bombas que necesitamos meter.
         En caso de ser afirmativo se meten las necesarias   */
     public void placeGems(int totalGems) {
         System.out.println("Entra en placeGems");

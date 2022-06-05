@@ -15,7 +15,7 @@ import com.alexmartin.buscagemas.R;
 
 public class Fragment3 extends Fragment {
     private View v;
-    private Button btSalir;
+
 
     public Fragment3() {
         // Required empty public constructor
@@ -32,15 +32,8 @@ public class Fragment3 extends Fragment {
 
         v=inflater.inflate(R.layout.fragment_3, container, false);
 
-        btSalir=v.findViewById(R.id.btnSalir);
 
-        btSalir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent =new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
         // Inflate the layout for this fragment
         return v;
     }

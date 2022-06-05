@@ -12,6 +12,7 @@ public class BuscaGemasGame {
     private int lifes=2;
     private int picaxeDurability;
     private int seconds;
+
     public BuscaGemasGame(int mode, int cuantityGems){
         this.isGameOver=false;
         gemsGrid = modeConfiguration(mode);
