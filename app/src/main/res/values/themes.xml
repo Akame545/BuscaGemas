@@ -1,22 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="NoActionTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/gris</item>
-    </style>
-    <!-- Base application theme. -->
     <style name="Theme.BuscaGemas" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/azulado</item>
-        <item name="colorPrimaryVariant">@color/gris</item>
+        <item name="colorPrimary">@color/dos</item>
+        <item name="colorPrimaryVariant">#6e3d3b</item>
         <item name="colorOnPrimary">@color/beage</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/amarillo</item>
-        <item name="colorSecondaryVariant">@color/marron</item>
+        <item name="colorSecondary">@color/tres</item>
+        <item name="colorSecondaryVariant">#c35132</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
 
 
@@ -32,10 +28,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-    </style>
-    <style name="Theme.BuscaGemas.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.BuscaGemas.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.BuscaGemas.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

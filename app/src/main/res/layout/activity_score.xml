@@ -14,6 +14,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/zendots"
         android:text="RESULTADOS"
+        android:textColor="@color/beage"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,8 +24,6 @@
         android:id="@+id/recyclerId"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_marginTop="8dp"
-        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
