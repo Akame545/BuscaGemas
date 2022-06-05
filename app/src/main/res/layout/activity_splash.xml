@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:fontFamily="@font/zendots"
-        android:text="BUSCA GEMAS"
+        android:text="@string/search_gems"
         android:textAlignment="center"
         android:textSize="40dp"
         app:layout_constraintEnd_toEndOf="parent"

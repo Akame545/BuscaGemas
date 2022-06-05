@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
-        android:text="Dificultad"
+        android:text="@string/difficulty_alert"
         android:textColor="@color/amarillo"
         android:textStyle="bold"
         android:textSize="16sp"
@@ -33,7 +33,7 @@
         android:layout_margin="16dp"
         android:textColor="@color/beage"
         android:fontFamily="@font/zendots"
-        android:text="¿Cuantas minas quiere que haya?"
+        android:text="@string/text_alert"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">

@@ -34,13 +34,13 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder>{
         holder.tiempo.setText(listaScore.get(position).getTiempo().toString()+" seg");
         switch( listaScore.get(position).getModo()){
             case 0:
-                holder.modo.setText("Normal");
+                holder.modo.setText(R.string.regular);
                 break;
             case 1:
-                holder.modo.setText("Dificil");
+                holder.modo.setText(R.string.hard);
                 break;
             case 2:
-                holder.modo.setText("Muy dificil");
+                holder.modo.setText(R.string.very_hard);
                 break;
         }
         holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString()+"/"+listaScore.get(position).getCantidad_gemas().toString());

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BuscaGemas</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="historial_tittle">HISTORIAL</string>
+    <string name="text_alert">How many gems do you want?</string>
+    <string name="text_alert_game">Do you want to continue it?</string>
+    <string name="title_alert_lost">Defeat</string>
+    <string name="text_alert_lost">Do you want to try again?</string>
+    <string name="title_alert_win">Victory</string>
+    <string name="text_alert_win">Do you want to change level?</string>
+    <string name="regular">Regular</string>
+    <string name="hard">Hard</string>
+    <string name="very_hard">Very Hard</string>
+    <string name="difficulty">difficulty</string>
+    <string name="difficulty_up">DIFFICULTY</string>
+    <string name="mode">mode</string>
+    <string name="difficulty_alert">Difficulty</string>
+    <string name="play">Play</string>
+    <string name="record">Historial</string>
+    <string name="title_alert_game">You have a game started</string>
+</resources>

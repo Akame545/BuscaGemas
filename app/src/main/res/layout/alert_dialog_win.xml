@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
-        android:text="Enhorabuena has ganado"
+        android:text="@string/title_alert_win"
         android:textColor="@color/amarillo"
         android:textStyle="bold"
         android:textSize="16sp"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
-        android:text="¿Quieres elegir otro nivel?"
+        android:text="@string/text_alert_win"
         android:textColor="@color/beage"
 
         android:textSize="16sp"

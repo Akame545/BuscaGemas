@@ -10,9 +10,6 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
-    <string name="smiley">😃</string>
-    <string name="flag">🚩</string>
-    <string name="bomb">💣</string>
     <string name="default_count">000</string>
 
     <string name="descriptionFragment1">El obejtivo de este juego es destruir las gemas. La primera celda
@@ -34,4 +31,24 @@
         para poder seguir jugando. ¡Suerte!</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="regular">Normal</string>
+    <string name="hard">Difícil</string>
+    <string name="very_hard">Muy difícil</string>
+    <string name="difficulty">Dificultad</string>
+    <string name="record">Historial</string>
+    <string name="play">Jugar</string>
+    <string name="tutorial">Tutorial</string>
+    <string name="historial_tittle">HISTORIAL</string>
+    <string name="search_gems">BUSCA GEMAS</string>
+    <string name="difficulty_alert">Dificultad</string>
+    <string name="text_alert">¿Cuantas minas quiere que haya?</string>
+    <string name="title_alert_game">Tienes una partida empezada</string>
+    <string name="text_alert_game">¿Quieres continuarla?</string>
+    <string name="title_alert_lost">Has Perdido</string>
+    <string name="text_alert_lost">¿Quieres volver a intentarlo?</string>
+    <string name="title_alert_win">Enhorabuena has ganado</string>
+    <string name="text_alert_win">¿Quieres elegir otro nivel?</string>
+    <string name="mode">modo</string>
+    <string name="difficulty_up">DIFICULTAD</string>
+    <string name="very_hard">Muy Dificil</string>
 </resources>

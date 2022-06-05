@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/zendots"
-        android:text="HISTORIAL"
+        android:text="@string/historial_tittle"
         android:textColor="@color/beage"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
