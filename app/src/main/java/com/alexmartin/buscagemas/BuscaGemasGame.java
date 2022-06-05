@@ -2,24 +2,30 @@ package com.alexmartin.buscagemas;
 
 import com.alexmartin.buscagemas.board.Cell;
 import com.alexmartin.buscagemas.board.GemsGrid;
-
+import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
-public class BuscaGemasGame {
+public class BuscaGemasGame implements Serializable {
     private GemsGrid gemsGrid;
     private boolean isGameOver;
     private int lifes=2;
     private int picaxeDurability;
     private int seconds;
-
+    private int mode;
+    private int cuantityGems;
     public BuscaGemasGame(int mode, int cuantityGems){
         this.isGameOver=false;
+        this.mode = mode;
+        this.cuantityGems = cuantityGems;
         gemsGrid = modeConfiguration(mode);
         gemsGrid.placeGems(gemsAccordingToDifficulty(cuantityGems));
         gemsGrid.asingValues();
     }
-    //public void generate
+
     public void handleCellClick(Cell cell, Boolean tool) {
         if (!isGameOver){
             if(tool) {
@@ -27,11 +33,15 @@ public class BuscaGemasGame {
                     cell.setRevealed(true);
                     if(lifes == 0) {
                         isGameOver = true;
-
                     } else lifes--;
                 } else clear(cell);
             } else {
+
+                cell.setRevealed(true);
                 cell.setFlagged(true);
+                if(!cell.isHasGem()){
+                    cell.setRevealed(true);
+                }
                 picaxeDurability--;
                 if(picaxeDurability==0){
                     isGameOver=true;
@@ -98,7 +108,7 @@ public class BuscaGemasGame {
     public boolean isGameWon(){
         int cellsUnrevealed=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(!c.isHasGem() && c.getValue() == 0 && !c.isRevealed()){
+            if(!c.isHasGem() && !c.isRevealed()){
                 cellsUnrevealed++;
             }
         }
@@ -106,22 +116,66 @@ public class BuscaGemasGame {
             return true;
         } else return false;
     }
-    private int gemsAccordingToDifficulty(int cuantityGems){
-        this.picaxeDurability=20;
+    public int remainingGems(){
+        int remainingGems=0;
+        for (Cell c: getGemsGrid().getCellsList()){
+            if(c.isHasGem() && c.isRevealed()){
+                remainingGems++;
+            }
+        }
+        return remainingGems;
+    }
+
+    public String getDate() {             // se vería así: miercoles 26/09/2018 05:30 p.m.
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date);
+    }
+    public int calculateScore(){
+        int score=0;
+        for (Cell c: getGemsGrid().getCellsList()){
+            if(c.isRevealed()){
+                score++;
+            }
+            if(c.isHasGem() && c.isFlagged()){
+                switch (c.getValue()) {
+                    case 0: case 1:
+                        score+=2;
+                        break;
+                    case 2: case 3:
+                        score+=5;
+                        break;
+                    default:
+                        score+=10;
+                }
+            }
+        }
+        score += picaxeDurability*3;
+        return score;
+    }
+    public int gemsAccordingToDifficulty(int cuantityGems){
+
         switch (cuantityGems){
             case 0:
-                return 15;
+                this.picaxeDurability=12;
+                return 10;
             case 1:
-                return 25;
+                this.picaxeDurability=22;
+                return 20;
             case 2:
-                return 50;
+                this.picaxeDurability=35;
+                return 30;
             case 3:
+                this.picaxeDurability=78;
                 return 70;
             case 4:
+                this.picaxeDurability=108;
                 return 100;
             case 5:
+                this.picaxeDurability=110;
                 return 100;
             case 6:
+                this.picaxeDurability=210;
                 return 200;
         }
         return 35;
@@ -148,5 +202,17 @@ public class BuscaGemasGame {
 
     public void setGameOver(boolean gameOver) {
         isGameOver = gameOver;
+    }
+
+    public int getMode() {
+        return mode;
+    }
+
+    public int getCuantityGems() {
+        return cuantityGems;
+    }
+
+    public void setGemsGrid(GemsGrid gemsGrid) {
+        this.gemsGrid = gemsGrid;
     }
 }
