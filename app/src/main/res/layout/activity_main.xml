@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_fondo"
+        android:src="@drawable/ic_backgroud"
         />
 
     <ImageView
@@ -89,14 +89,14 @@
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Resultados"
-        android:onClick="openResultados"
         android:fontFamily="@font/zendots"
+        android:onClick="openResultados"
+        android:text="Historial"
+        android:textSize="18dp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btDificultad"
-        android:textSize="18dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/btDificultad" />
 
 
     <Button
@@ -106,10 +106,10 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/zendots"
         android:onClick="openGame"
-        android:text="Play"
+        android:text="Jugar"
+        android:textSize="40dp"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btResultados"
-        android:textSize="40dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/btResultados" />
 </androidx.constraintlayout.widget.ConstraintLayout>

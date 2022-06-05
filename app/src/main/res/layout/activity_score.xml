@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/zendots"
-        android:text="RESULTADOS"
+        android:text="HISTORIAL"
         android:textColor="@color/beage"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +24,8 @@
         android:id="@+id/recyclerId"
         android:layout_width="match_parent"
         android:layout_height="600dp"
+        android:scrollbarThumbVertical="@drawable/scrollbar"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 

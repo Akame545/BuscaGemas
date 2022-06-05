@@ -24,25 +24,27 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.tarjeta_resultados,null,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_record,null,false);
         return  new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        if (listaScore.get(position).getGanar()==1){
-            holder.score.setText(listaScore.get(position).getScore().toString());
-            holder.tiempo.setText(listaScore.get(position).getTiempo().toString()+" sec");
-            holder.modo.setText(listaScore.get(position).getModo().toString());
-            holder.gemas.setText(listaScore.get(position).getCantidad_gemas().toString());
-            holder.fecha.setText(listaScore.get(position).getFecha());
-        } else {
-            holder.score.setText(listaScore.get(position).getScore().toString());
-            holder.tiempo.setText(listaScore.get(position).getTiempo().toString()+" seg");
-            holder.modo.setText(listaScore.get(position).getModo().toString());
-            holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString()+"/"+listaScore.get(position).getCantidad_gemas().toString());
-            holder.fecha.setText(listaScore.get(position).getFecha());
+        holder.score.setText(listaScore.get(position).getScore().toString());
+        holder.tiempo.setText(listaScore.get(position).getTiempo().toString()+" seg");
+        switch( listaScore.get(position).getModo()){
+            case 0:
+                holder.modo.setText("Normal");
+                break;
+            case 1:
+                holder.modo.setText("Dificil");
+                break;
+            case 2:
+                holder.modo.setText("Muy dificil");
+                break;
         }
+        holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString()+"/"+listaScore.get(position).getCantidad_gemas().toString());
+        holder.fecha.setText(listaScore.get(position).getFecha());
 
     }
 

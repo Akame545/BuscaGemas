@@ -12,7 +12,7 @@
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/ic_fondo"
+        android:src="@drawable/ic_backgroud"
         android:scaleType="fitXY"/>
 
     <LinearLayout
@@ -29,7 +29,7 @@
             android:layout_marginHorizontal="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_vidas3"
+            android:src="@drawable/ic_life3"
             />
 
         <TextView
@@ -54,19 +54,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/activity_main_smiley"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="@string/smiley"-->
-        <!--                android:textSize="64sp" />-->
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/activity_main_grid"
             android:layout_width="match_parent"
             android:layout_height="500dp"
-            android:layout_marginHorizontal="8dp" />
+            android:layout_marginHorizontal="8dp"
+            android:scrollbarThumbVertical="@drawable/scrollbar"
+            android:scrollbars="vertical"
+            android:verticalScrollbarPosition="right" />
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -90,8 +85,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="50dp"
-                android:src="@drawable/ic_dinamitafondo"
-                android:background="@color/alpha"/>
+                android:background="@color/alpha"
+                android:cropToPadding="false"
+                android:src="@drawable/ic_dynamite_focused" />
 
             <ImageButton
                 android:id="@+id/picaxe"
@@ -99,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="50dp"
-                android:src="@drawable/ic_pico"
+                android:src="@drawable/ic_picaxe"
                 android:background="@color/alpha"/>
 
         </LinearLayout>

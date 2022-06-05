@@ -16,13 +16,13 @@ public class BuscaGemasGame implements Serializable {
     private int picaxeDurability;
     private int seconds;
     private int mode;
-    private int cuantityGems;
-    public BuscaGemasGame(int mode, int cuantityGems){
+    private int quantityGems;
+    public BuscaGemasGame(int mode, int quantityGems){
         this.isGameOver=false;
         this.mode = mode;
-        this.cuantityGems = cuantityGems;
+        this.quantityGems = quantityGems;
         gemsGrid = modeConfiguration(mode);
-        gemsGrid.placeGems(gemsAccordingToDifficulty(cuantityGems));
+        gemsGrid.placeGems(gemsAccordingToDifficulty(quantityGems));
         gemsGrid.asingValues();
     }
 
@@ -31,14 +31,14 @@ public class BuscaGemasGame implements Serializable {
             if(tool) {
                 if (cell.isHasGem()){
                     cell.setRevealed(true);
+                    cell.setDestroyed(true);
                     if(lifes == 0) {
                         isGameOver = true;
                     } else lifes--;
                 } else clear(cell);
             } else {
-
                 cell.setRevealed(true);
-                cell.setFlagged(true);
+                cell.setMined(true);
                 if(!cell.isHasGem()){
                     cell.setRevealed(true);
                 }
@@ -49,41 +49,16 @@ public class BuscaGemasGame implements Serializable {
             }
         }
     }
-    private GemsGrid modeConfiguration(int mode){
-        switch(mode){
-            case 0:
-                this.seconds = 100;
-                return new GemsGrid(10,10);
-            case 1:
-                this.seconds = 150;
-                return new GemsGrid(30,10);
-            case 2:
-                this.seconds = 200;
-                return new GemsGrid(60,10);
-        }
-        return new GemsGrid(10,10);
-    }
-
-    /*METODO PARA LIMPIAR LOS BLOQUES DE CELDAS SIN MINAS */
     public void clear(Cell cell) {
-        //obtener el indice de la celda a traves de la lista de celdas
         int index = getGemsGrid().getCellsList().indexOf(cell);
-        //a esta celda se le actualiza la variable isRevelated a true
         getGemsGrid().getCellsList().get(index).setRevealed(true);
-
-        // comporbamos si la celda tiene una bomba o no y en caso de que no las meteremos en un arrayList
         if (cell.getValue() == 0 && !cell.isHasGem()) {
             List<Cell> toClear = new ArrayList<>();
             List<Cell> toCheckAdjacents = new ArrayList<>();
-
             toCheckAdjacents.add(cell);
-
             while (toCheckAdjacents.size() > 0) {
                 Cell c = toCheckAdjacents.get(0);
-                int cIndex = getGemsGrid().getCellsList().indexOf(c);
-                int[] cellPos = getGemsGrid().toXY(cIndex);
                 for (Cell adjacentTemp : getGemsGrid().adjacentCells(c.getX(), c.getY())) {
-                    //para las celdas adyacentes comprobamos si tienen el valor "blank"
                     if (adjacentTemp.getValue() == 0) {
                         if (!toClear.contains(adjacentTemp)) {
                             if (!toCheckAdjacents.contains(adjacentTemp)) {
@@ -126,7 +101,7 @@ public class BuscaGemasGame implements Serializable {
         return remainingGems;
     }
 
-    public String getDate() {             // se vería así: miercoles 26/09/2018 05:30 p.m.
+    public String getDate() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
@@ -134,10 +109,10 @@ public class BuscaGemasGame implements Serializable {
     public int calculateScore(){
         int score=0;
         for (Cell c: getGemsGrid().getCellsList()){
-            if(c.isRevealed()){
+            if(c.isRevealed() && !isGameOver()){
                 score++;
             }
-            if(c.isHasGem() && c.isFlagged()){
+            if(c.isHasGem() && c.isMined()){
                 switch (c.getValue()) {
                     case 0: case 1:
                         score+=2;
@@ -149,9 +124,27 @@ public class BuscaGemasGame implements Serializable {
                         score+=10;
                 }
             }
+            if(c.isDestroyed())
+                score -=10;
         }
-        score += picaxeDurability*3;
+        if(!isGameOver) {
+            score += picaxeDurability * 3;
+        }
         return score;
+    }
+    private GemsGrid modeConfiguration(int mode){
+        switch(mode){
+            case 0:
+                this.seconds = 100;
+                return new GemsGrid(10,10);
+            case 1:
+                this.seconds = 200;
+                return new GemsGrid(30,10);
+            case 2:
+                this.seconds = 350;
+                return new GemsGrid(50,10);
+        }
+        return new GemsGrid(10,10);
     }
     public int gemsAccordingToDifficulty(int cuantityGems){
 
@@ -160,23 +153,23 @@ public class BuscaGemasGame implements Serializable {
                 this.picaxeDurability=12;
                 return 10;
             case 1:
-                this.picaxeDurability=22;
-                return 20;
+                this.picaxeDurability=18;
+                return 15;
             case 2:
-                this.picaxeDurability=35;
-                return 30;
+                this.picaxeDurability=23;
+                return 20;
             case 3:
-                this.picaxeDurability=78;
-                return 70;
+                this.picaxeDurability=54;
+                return 50;
             case 4:
-                this.picaxeDurability=108;
-                return 100;
+                this.picaxeDurability=64;
+                return 60;
             case 5:
-                this.picaxeDurability=110;
-                return 100;
+                this.picaxeDurability=86;
+                return 80;
             case 6:
-                this.picaxeDurability=210;
-                return 200;
+                this.picaxeDurability=96;
+                return 90;
         }
         return 35;
     }
@@ -208,11 +201,7 @@ public class BuscaGemasGame implements Serializable {
         return mode;
     }
 
-    public int getCuantityGems() {
-        return cuantityGems;
-    }
-
-    public void setGemsGrid(GemsGrid gemsGrid) {
-        this.gemsGrid = gemsGrid;
+    public int getQuantityGems() {
+        return quantityGems;
     }
 }

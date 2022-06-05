@@ -35,7 +35,7 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
     //Es el encargado de actualizar los datos de un ViewHolder ya existente.
     @Override
     public void onBindViewHolder(@NonNull MineTileViewHolder holder, int position) {
-        holder.bind(cells.get(position), position);
+        holder.bind(cells.get(position));
 
         holder.setIsRecyclable(false);
     }
@@ -59,9 +59,9 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
             valueTextView = itemView.findViewById(R.id.item_cell_value);
         }
 
-        public void bind(final Cell cell, int position) {
+        public void bind(final Cell cell) {
             int color1 = valueTextView.getResources().getColor(R.color.beage);
-            itemView.setBackgroundResource(R.drawable.ic_roca);
+            itemView.setBackgroundResource(R.drawable.ic_rock);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -70,16 +70,30 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
             });
             if (cell.isRevealed()) {
                 if (cell.isHasGem()) {
-                    switch (cell.getValue()) {
-                        case 0: case 1:
-                            itemView.setBackgroundResource(R.drawable.ic_joyaazul);
-                            break;
-                        case 2: case 3:
-                            itemView.setBackgroundResource(R.drawable.ic_joyaverde);
-                            break;
-                        default:
-                            itemView.setBackgroundResource(R.drawable.ic_joyarosa);
+                    if(cell.isDestroyed()){
+                        switch (cell.getValue()) {
+                            case 0: case 1:
+                                itemView.setBackgroundResource(R.drawable.ic_blue_gem_broken);
+                                break;
+                            case 2: case 3:
+                                itemView.setBackgroundResource(R.drawable.ic_green_gem_broken);
+                                break;
+                            default:
+                                itemView.setBackgroundResource(R.drawable.ic_red_gem_broken);
+                        }
+                    } else {
+                        switch (cell.getValue()) {
+                            case 0: case 1:
+                                itemView.setBackgroundResource(R.drawable.ic_blue_gem);
+                                break;
+                            case 2: case 3:
+                                itemView.setBackgroundResource(R.drawable.ic_green_gem);
+                                break;
+                            default:
+                                itemView.setBackgroundResource(R.drawable.ic_red_gem);
+                        }
                     }
+
                 } else if (cell.getValue() == 0) {
                     valueTextView.setText("");
                     itemView.setBackgroundColor(Color.TRANSPARENT);
@@ -88,8 +102,8 @@ public class GemsGridRecyclerAdapter extends RecyclerView.Adapter<GemsGridRecycl
                     itemView.setBackgroundColor(Color.TRANSPARENT);
                     valueTextView.setTextColor(color1);
                 }
-            } else if (cell.isFlagged()) {
-                itemView.setBackgroundResource(R.drawable.ic_joyaazulrota);
+            } else if (cell.isMined()) {
+                itemView.setBackgroundResource(R.drawable.ic_blue_gem_broken);
             }
         }
     }

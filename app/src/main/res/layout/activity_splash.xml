@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".Splash">
 
     <ImageView
         android:id="@+id/fondo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/fondo"
+        android:src="@drawable/splash_backgroud"
         android:scaleType="fitEnd"
         />
 
@@ -26,7 +27,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/cuatro"/>
 
     <ImageView
         android:id="@+id/joya"
@@ -38,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.821"
-        app:srcCompat="@drawable/ic_joya" />
+        app:srcCompat="@drawable/ic_gem" />
 
     <ImageView
         android:id="@+id/picaxe"
@@ -49,7 +51,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.77"
-        app:srcCompat="@drawable/ic_pico_splash" />
+        app:srcCompat="@drawable/ic_picaxe_splash" />
 
 
 

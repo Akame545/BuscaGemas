@@ -5,18 +5,18 @@ import java.io.Serializable;
 public class Cell implements Serializable {
     private int value;
     private boolean isRevealed;
-    private boolean isFlagged;
+    private boolean isMined;
     private boolean hasGem;
+    private boolean isDestroyed;
     private int x;
     private int y;
     public Cell(int x,int y) {
         this.value = 0;
         this.isRevealed = false;
-        this.isFlagged = false;
+        this.isMined = false;
         this.x = x;
         this.y = y;
     }
-    //getters y setters para cada uno de los valores
     public int getValue() {
         return value;
     }
@@ -33,12 +33,12 @@ public class Cell implements Serializable {
         isRevealed = revealed;
     }
 
-    public boolean isFlagged() {
-        return isFlagged;
+    public boolean isMined() {
+        return isMined;
     }
 
-    public void setFlagged(boolean flagged) {
-        isFlagged = flagged;
+    public void setMined(boolean mined) {
+        isMined = mined;
     }
 
     public boolean isHasGem() {
@@ -63,5 +63,13 @@ public class Cell implements Serializable {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public boolean isDestroyed() {
+        return isDestroyed;
+    }
+
+    public void setDestroyed(boolean destroyed) {
+        isDestroyed = destroyed;
     }
 }

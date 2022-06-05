@@ -21,8 +21,10 @@
 <!--    Nuevos colores -->
     <color name="uno">#59313C</color>
     <color name="dos">#8C2108</color>
+    <color name="dosS">#D5330D</color>
     <color name="tres">#BF604B</color>
     <color name="cuatro">#401515</color>
+    <color name="cuatroS">#BE2E0F0F</color>
 
 
 

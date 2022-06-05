@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:foregroundGravity="center"
-        android:src="@drawable/ic_joya"
+        android:src="@drawable/ic_gem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,7 +23,7 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
         android:text="Enhorabuena has ganado"
-        android:textColor="@color/verde"
+        android:textColor="@color/amarillo"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/icono"
@@ -35,6 +35,8 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
         android:text="¿Quieres elegir otro nivel?"
+        android:textColor="@color/beage"
+
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">

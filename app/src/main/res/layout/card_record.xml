@@ -35,7 +35,8 @@
                 android:hint="score"
                 android:textAlignment="center"
                 android:textSize="16dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/marron"/>
 
             <TextView
                 android:id="@+id/tiempo"
@@ -47,7 +48,8 @@
                 android:hint="tiempo"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/marron"/>
 
             <TextView
                 android:id="@+id/modo"
@@ -59,7 +61,8 @@
                 android:hint="modo"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/marron"/>
 
             <TextView
                 android:id="@+id/gemas"
@@ -71,7 +74,8 @@
                 android:hint="gemas"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/marron"/>
 
             <TextView
                 android:id="@+id/fecha"
@@ -83,7 +87,8 @@
                 android:hint="fecha"
                 android:textAlignment="center"
                 android:textSize="14dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/marron"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

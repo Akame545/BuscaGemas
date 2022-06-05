@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:foregroundGravity="center"
-        android:src="@drawable/ic_joya"
+        android:src="@drawable/ic_gem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
         android:text="Has Perdido"
-        android:textColor="@color/rojo"
+        android:textColor="@color/amarillo"
         android:textStyle="bold"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/icono"
@@ -34,6 +34,8 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
         android:text="¿Quieres volver a intentarlo?"
+        android:textColor="@color/beage"
+
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">

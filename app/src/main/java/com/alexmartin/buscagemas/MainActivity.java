@@ -81,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+        builder.setNeutralButton("No",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                utilsFile(0);
+                dialog.dismiss();
+            }
+        });
         AlertDialog dialog = builder.create();
         dialog.show();
     }

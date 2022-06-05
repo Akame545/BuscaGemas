@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:foregroundGravity="center"
-        android:src="@drawable/ic_joya"
+        android:src="@drawable/ic_gem"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_margin="16dp"
         android:fontFamily="@font/zendots"
         android:text="Tienes una partida empezada"
-        android:textColor="@color/black"
+        android:textColor="@color/amarillo"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/icono"
@@ -35,6 +35,7 @@
         android:fontFamily="@font/zendots"
         android:text="¿Quieres continuarla?"
         android:textSize="16sp"
+        android:textColor="@color/beage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">
 
