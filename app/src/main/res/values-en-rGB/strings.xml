@@ -19,4 +19,14 @@
     <string name="play">Play</string>
     <string name="record">Historial</string>
     <string name="title_alert_game">You have a game started</string>
+    <string name="descriptionFragment1">The objective of this game is to chop the gems. The cells you click can have a gem or a number.</string>
+    <string name="descriptionFragment3">The pickaxe\'s function is to reveal a cell where you think there is a gem. Also, avoid using dynamite to break a gem.</string>
+    <string name="descriptionFragment2">Each number represents the number of adjacent gems on the board.</string>
+    <string name="descriptionFragment4">The pickaxe has a set number of uses. This is represented in the bottom bar. So if it empties, you lose the game.</string>
+    <string name="descriptionFragment5">In each game you will have three lives: if you make a mistake and a gem is broken three times, you lose. There is also a chance that you will lose the match due to time, this can be seen through a counter in the top center.</string>
+    <string name="descriptionFragment6">To choose your preferred difficulty mode you will have to click on the difficulty option in the main menu and then hit Play.</string>
+    <string name="descriptionFragment7">Keep in mind that if you choose the hard or very hard difficulty mode you will have to swipe up as the grid is higher than your mobile screen.</string>
+    <string name="descriptionFragment8">1: Score\n 2: Time\n 3: Gems\n 4: Date</string>
+    <string name="descriptionFragment9">Good luck in your new game!</string>
+    <string name="titulo8">History table fields legend:</string>
 </resources>

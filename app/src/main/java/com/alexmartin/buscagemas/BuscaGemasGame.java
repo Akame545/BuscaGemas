@@ -138,10 +138,10 @@ public class BuscaGemasGame implements Serializable {
                 this.seconds = 100;
                 return new GemsGrid(10,10);
             case 1:
-                this.seconds = 200;
+                this.seconds = 220;
                 return new GemsGrid(30,10);
             case 2:
-                this.seconds = 350;
+                this.seconds = 370;
                 return new GemsGrid(50,10);
         }
         return new GemsGrid(10,10);

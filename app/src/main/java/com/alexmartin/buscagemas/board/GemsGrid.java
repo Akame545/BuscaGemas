@@ -8,13 +8,13 @@ import java.util.Random;
 //CLASE QUE REPRESENTA LA CUADRICULA DE MINAS
 public class GemsGrid implements Serializable {
     private ArrayList<Cell> cellsList;
-    public int filas;
-    public int columnas;
-    public GemsGrid(int filas, int columnas){
-        this.columnas=columnas;
-        this.filas=filas;
+    public int rows;
+    public int columns;
+    public GemsGrid(int rows, int columnas){
+        this.columns =columnas;
+        this.rows = rows;
         this.cellsList=new ArrayList<>();
-        inicializeArray(filas, columnas);
+        inicializeArray(rows, columnas);
     }
 
     private void inicializeArray(int filas, int columnas) {
@@ -27,8 +27,8 @@ public class GemsGrid implements Serializable {
     public void placeGems(int totalGems) {
         int gemsPlaced = 0;
         while (gemsPlaced < totalGems) {
-            int x = new Random().nextInt(filas);
-            int y = new Random().nextInt(columnas);
+            int x = new Random().nextInt(rows);
+            int y = new Random().nextInt(columns);
             int index = toIndex(x, y);
             if (!cellsList.get(index).isHasGem()) {
                 cellsList.get(index).setHasGem(true);
@@ -37,8 +37,8 @@ public class GemsGrid implements Serializable {
         }
     }
     public void asingValues(){
-        for (int x = 0; x < filas; x++) {
-            for (int y = 0; y < columnas; y++) {
+        for (int x = 0; x < rows; x++) {
+            for (int y = 0; y < columns; y++) {
                 List<Cell> adjacentcellsList = adjacentCells(x, y);
                 int countBombs = 0;
                 for (Cell cell: adjacentcellsList) {
@@ -96,23 +96,23 @@ public class GemsGrid implements Serializable {
                     tempY--;
                     break;
             }
-            if (tempX >= 0 && tempX < filas && tempY >= 0 && tempY < columnas){
+            if (tempX >= 0 && tempX < rows && tempY >= 0 && tempY < columns){
                 tempListCells.add(cellAt(tempX, tempY));
             }
         }
         return tempListCells;
     }
     public int toIndex(int x, int y){
-        return (this.columnas*x+y);
+        return (this.columns *x+y);
     }
     public int[] toXY(int index){
         int x, y;
-        x = index / this.columnas;
-        y = index % this.columnas;
+        x = index / this.columns;
+        y = index % this.columns;
         return new int[]{x,y};
     }
     public Cell cellAt(int x, int y) {
-        if (x < 0 || x > filas || y < 0 || y > columnas) {
+        if (x < 0 || x > rows || y < 0 || y > columns) {
             return null;
         }
         return cellsList.get(toIndex(x, y));
