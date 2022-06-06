@@ -377,6 +377,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         values.put(Utilidades.CAMPO_GEMAS_RESTANTES,remainingGems);
         values.put(Utilidades.CAMPO_FECHA,game.getDate());
         values.put(Utilidades.CAMPO_SCORE,score);
+        db.insert(Utilidades.TABLA_SCORE,Utilidades.CAMPO_GANAR,values);
         db.close();
     }
 }
