@@ -33,7 +33,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Normal</string>
     <string name="hard">Difícil</string>
-    <string name="very_hard">Muy difícil</string>
     <string name="difficulty">Dificultad</string>
     <string name="record">Historial</string>
     <string name="play">Jugar</string>

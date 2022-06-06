@@ -13,12 +13,16 @@
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color5.xml" value="0.1615" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamita.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamitafondo.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dynamite_focused.xml" value="0.317" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondo.xml" value="0.238" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondo1.xml" value="0.162" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondos.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_green_gem_broken.xml" value="0.317" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_icon_launcher_foreground.xml" value="0.317" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joya.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joyanaranja.xml" value="0.1615" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joyanaranja1.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.317" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_logo.xml" value="0.238" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico.xml" value="0.267" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico_splash.xml" value="0.1615" />
@@ -53,6 +57,9 @@
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/item_cell.xml" value="0.33" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/tarjeta_resultados.xml" value="0.5" />
         <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/menu/opciones_normal.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/mipmap-anydpi-v26/ic_icon_launcher.xml" value="0.317" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/mipmap-anydpi-v26/ic_icon_launcher_round.xml" value="0.317" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.317" />
         <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/drawable/ic_fondo.xml" value="0.3055" />
         <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_dificultad.xml" value="0.3020833333333333" />
         <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_main.xml" value="0.33" />
