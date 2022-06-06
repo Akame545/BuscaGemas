@@ -10,17 +10,14 @@ import android.view.ViewGroup;
 
 import com.alexmartin.buscagemas.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Fragment7#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Fragment7 extends Fragment {
 
 
     public Fragment7() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,7 +29,7 @@ public class Fragment7 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View v= inflater.inflate(R.layout.fragment_7, container, false);
-       return v;
+        View v= inflater.inflate(R.layout.fragment_7, container, false);
+        return v;
     }
 }

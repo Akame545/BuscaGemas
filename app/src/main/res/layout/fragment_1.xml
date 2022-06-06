@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvDescripcion1"
         android:text="@string/descriptionFragment1"
+        android:textSize="18dp"
         android:fontFamily="@font/zendots"
         app:layout_constraintTop_toBottomOf="@+id/ivFragment1"
         app:layout_constraintStart_toStartOf="parent"

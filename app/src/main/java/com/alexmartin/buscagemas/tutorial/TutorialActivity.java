@@ -1,6 +1,5 @@
 package com.alexmartin.buscagemas.tutorial;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
@@ -17,11 +16,12 @@ import com.alexmartin.buscagemas.tutorial.fragments.Fragment5;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment6;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment7;
 import com.alexmartin.buscagemas.tutorial.fragments.Fragment8;
+import com.alexmartin.buscagemas.tutorial.fragments.Fragment9;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 public class TutorialActivity extends FragmentActivity {
     //Dicta el número de paginas
-    private static final int NUM_PAGES = 8;
+    private static final int NUM_PAGES = 9;
     //Pager widget, que otorga animacion y posibilidad de swipear lateralmente
     private ViewPager2 view_pager;
     //El adapter que provee las páginas al ViewPager
@@ -69,9 +69,10 @@ public class TutorialActivity extends FragmentActivity {
 
                 case 7:
                     return new Fragment8();
-                    /*
+
                 case 8:
-                    return new Fragment8();
+                    return new Fragment9();
+                    /*
                 case 9:
                     return new Fragment9();*/
             }

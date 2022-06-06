@@ -8,7 +8,7 @@
     tools:context=".tutorial.fragments.Fragment3" >
 
     <ImageView
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:id="@+id/ivFragment3"
         android:src="@drawable/imgtut3"
@@ -24,13 +24,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvDescripcion3"
         android:text="@string/descriptionFragment3"
+        android:textSize="18dp"
         android:fontFamily="@font/zendots"
         app:layout_constraintTop_toBottomOf="@+id/ivFragment3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
 
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

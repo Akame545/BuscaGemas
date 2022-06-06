@@ -13,35 +13,36 @@
     <string name="default_count">000</string>
 
     <string name="descriptionFragment1">El obejtivo de este juego es picar las gemas. Las celdas
-        que clickes pueden tener una gema o un número. Cada
-        número representa la cantidad de gemas adyacentes en el tablero.</string>
+        que clickes pueden tener una gema o un número. </string>
 
-    <string name="descriptionFragment2">La función del pico es revelar una celda
+    <string name="descriptionFragment2">Cada número representa la cantidad de gemas adyacentes en el tablero. </string>
+
+    <string name="descriptionFragment3">La función del pico es revelar una celda
     donde tú crees que hay una gema. Además, evita usar la dinamita para romper una gema.</string>
 
-    <string name="descriptionFragment3">El pico tiene un número de usos determinado. Esto está representado en
+    <string name="descriptionFragment4">El pico tiene un número de usos determinado. Esto está representado en
     la barra inferior. Por lo tanto, si se vacía, pierdes la partida. </string>
 
-    <string name="descriptionFragment4">En cada partida vas a disponer de tres vidas: si te equivocas
+    <string name="descriptionFragment5">En cada partida vas a disponer de tres vidas: si te equivocas
          y rompen tres veces una gema pierdes. También existe la posibilidad de que pierdas la
         partida por tiempo, éste se puede ver a través de un contador en la parte superior central.
     </string>
 
-    <string name="descriptionFragment5">Para el elegir tu modo de dificultad preferido tendrás que clickar en
-        la opción "dificultad" del menú principal y después darle a "play".</string>
+    <string name="descriptionFragment6">Para el elegir tu modo de dificultad preferido tendrás que clickar en
+        la opción "dificultad" del menú principal y después darle a "Jugar".</string>
 
 
-    <string name="descriptionFragment6">Ten en cuenta que si eliges el modo de dificultad difícil o muy
+    <string name="descriptionFragment7">Ten en cuenta que si eliges el modo de dificultad difícil o muy
     difícil tendrás que deslizar hacia arriba ya que la cuadrícula es más alta que la pantalla de tu móvil.</string>
 
-    <string name="descriptionFragment7">1: Puntuación \n
+    <string name="descriptionFragment8">1: Puntuación \n
         2: Tiempo \n
         3: Gemas \n
         4: Fecha </string>
 
-    <string name="titulo7">Leyenda campos tabla historial: </string>
+    <string name="titulo8">Leyenda campos tabla historial: </string>
 
-    <string name="descriptionFragment8">¡Suerte en tu nueva partida!</string>
+    <string name="descriptionFragment9">¡Suerte en tu nueva partida!</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Normal</string>

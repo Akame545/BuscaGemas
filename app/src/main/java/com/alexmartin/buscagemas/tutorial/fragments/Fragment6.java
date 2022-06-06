@@ -10,9 +10,7 @@ import android.view.ViewGroup;
 
 import com.alexmartin.buscagemas.R;
 
-
 public class Fragment6 extends Fragment {
-
 
     public Fragment6() {
         // Required empty public constructor

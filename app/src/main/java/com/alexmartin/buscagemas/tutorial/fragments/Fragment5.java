@@ -10,12 +10,13 @@ import android.view.ViewGroup;
 
 import com.alexmartin.buscagemas.R;
 
+
 public class Fragment5 extends Fragment {
+    private View v;
 
     public Fragment5() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,8 +27,13 @@ public class Fragment5 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        v=inflater.inflate(R.layout.fragment_5, container, false);
+
+
+
+
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_5, container, false);
         return v;
     }
 }

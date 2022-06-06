@@ -9,14 +9,14 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="200dp"
+        android:layout_height="400dp"
         android:id="@+id/ivFragment6"
         android:src="@drawable/imgtut6"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="35dp"
         />
 
     <TextView
@@ -24,11 +24,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvDescripcion6"
         android:text="@string/descriptionFragment6"
+        android:textSize="17dp"
         android:fontFamily="@font/zendots"
         app:layout_constraintTop_toBottomOf="@+id/ivFragment6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="25dp"
 
         />
 
