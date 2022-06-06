@@ -13,27 +13,39 @@
         <activity
             android:theme="@style/Theme.BuscaGemasSinActionBar"
             android:name=".tutorial.TutorialActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ScoreActivity"
             android:exported="true"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:parentActivityName=".MainActivity"
             android:name=".Dificultad"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:theme="@style/Theme.BuscaGemasSinActionBar"
             android:name=".TableGame"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:theme="@style/Theme.BuscaGemasSinActionBar"
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Splash"
             android:exported="true"
-            android:theme="@style/Theme.BuscaGemasSinActionBar" >
+            android:theme="@style/Theme.BuscaGemasSinActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
