@@ -1,36 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout3"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/frameLayout5"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tutorial.fragments.Fragment3" >
+    tools:context=".tutorial.fragments.Fragment5">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/ivFragment3"
-        android:src="@drawable/imgtut3"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:id="@+id/ivFragment5"
+        android:src="@drawable/imgtut5"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="55dp"
         />
 
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:id="@+id/tvDescripcion3"
-        android:text="@string/descriptionFragment3"
+        android:id="@+id/tvDescripcion5"
+        android:text="@string/descriptionFragment5"
         android:fontFamily="@font/zendots"
-        app:layout_constraintTop_toBottomOf="@+id/ivFragment3"
+        app:layout_constraintTop_toBottomOf="@+id/ivFragment5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
 
         />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

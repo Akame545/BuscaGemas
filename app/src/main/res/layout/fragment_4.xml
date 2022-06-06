@@ -7,32 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".tutorial.fragments.Fragment4">
 
+    <ImageView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ivFragment4"
+        android:src="@drawable/imgtut4"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="75dp"
+        />
+
     <TextView
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:id="@+id/tvDescripcion4"
-        android:text="@string/descriptionFragment3"
+        android:text="@string/descriptionFragment4"
         android:fontFamily="@font/zendots"
-
+        app:layout_constraintTop_toBottomOf="@+id/ivFragment4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="60dp"
 
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSalir"
-        android:text="Salir"
-        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-        android:textColor="#FF842B"
-
-        app:layout_constraintTop_toBottomOf="@id/tvDescripcion4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="50dp"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

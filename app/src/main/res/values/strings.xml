@@ -12,24 +12,37 @@
 
     <string name="default_count">000</string>
 
-    <string name="descriptionFragment1">El obejtivo de este juego es destruir las gemas. La primera celda
-        que cliques puede tener una gema o un número.
-        Ten en cuenta que cada vez que cliques en una gema se te restará una vida ya que no la has destruido. Cada
+    <string name="descriptionFragment1">El obejtivo de este juego es picar las gemas. Las celdas
+        que clickes pueden tener una gema o un número. Cada
         número representa la cantidad de gemas adyacentes en el tablero.</string>
 
-    <string name="descriptionFragment2">La función del pico te permite destruir una celda
-    donde tú crees que hay una gema. Además, la dinamita permite revelar una celda y de este
-    modo comprobar si es una gema o un número.</string>
+    <string name="descriptionFragment2">La función del pico es revelar una celda
+    donde tú crees que hay una gema. Además, evita usar la dinamita para romper una gema.</string>
 
-    <string name="descriptionFragment3">Una condición de derrota son las vidas: si te equivocas
-        tres veces al revelar una celda pierdes. También existe la posibilidad de que pierdas la
+    <string name="descriptionFragment3">El pico tiene un número de usos determinado. Esto está representado en
+    la barra inferior. Por lo tanto, si se vacía, pierdes la partida. </string>
+
+    <string name="descriptionFragment4">En cada partida vas a disponer de tres vidas: si te equivocas
+         y rompen tres veces una gema pierdes. También existe la posibilidad de que pierdas la
         partida por tiempo, éste se puede ver a través de un contador en la parte superior central.
-    Por último, el pico tiene una durabilidad según el número de gemas que hay en el tablero.</string>
+    </string>
 
-    <string name="descriptionFragment4">Dpendiendo de la dificultad que elijas la cuadrícula de celdas
-        puede tener más tamaño del que se puede apreciar a primera vista. Hay que deslizar hacia arriba
-        para poder seguir jugando. ¡Suerte!</string>
-<!-- TODO: Remove or change this placeholder text -->
+    <string name="descriptionFragment5">Para el elegir tu modo de dificultad preferido tendrás que clickar en
+        la opción "dificultad" del menú principal y después darle a "play".</string>
+
+
+    <string name="descriptionFragment6">Ten en cuenta que si eliges el modo de dificultad difícil o muy
+    difícil tendrás que deslizar hacia arriba ya que la cuadrícula es más alta que la pantalla de tu móvil.</string>
+
+    <string name="descriptionFragment7">1: Puntuación \n
+        2: Tiempo \n
+        3: Gemas \n
+        4: Fecha </string>
+
+    <string name="titulo7">Leyenda campos tabla historial: </string>
+
+    <string name="descriptionFragment8">¡Suerte en tu nueva partida!</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Normal</string>
     <string name="hard">Difícil</string>

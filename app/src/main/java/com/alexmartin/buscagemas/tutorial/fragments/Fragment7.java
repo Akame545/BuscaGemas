@@ -1,6 +1,5 @@
 package com.alexmartin.buscagemas.tutorial.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,16 +7,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
-import com.alexmartin.buscagemas.MainActivity;
 import com.alexmartin.buscagemas.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link Fragment7#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class Fragment7 extends Fragment {
 
-public class Fragment4 extends Fragment {
-    private View v;
 
-    public Fragment4() {
+    public Fragment7() {
         // Required empty public constructor
     }
 
@@ -30,13 +31,8 @@ public class Fragment4 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        v=inflater.inflate(R.layout.fragment_4, container, false);
-
-
-
-
         // Inflate the layout for this fragment
-        return v;
+       View v= inflater.inflate(R.layout.fragment_7, container, false);
+       return v;
     }
 }

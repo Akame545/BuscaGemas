@@ -14,12 +14,13 @@ import com.alexmartin.buscagemas.MainActivity;
 import com.alexmartin.buscagemas.R;
 
 
-public class Fragment4 extends Fragment {
-    private View v;
+public class Fragment8 extends Fragment {
 
-    public Fragment4() {
+    private Button btSalir;
+    public Fragment8() {
         // Required empty public constructor
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,13 +31,17 @@ public class Fragment4 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        v=inflater.inflate(R.layout.fragment_4, container, false);
-
-
-
-
         // Inflate the layout for this fragment
+        View v= inflater.inflate(R.layout.fragment_8, container, false);
+        btSalir=v.findViewById(R.id.btnSalir);
+
+        btSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(getActivity(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
         return v;
     }
 }
