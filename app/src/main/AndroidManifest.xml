@@ -1,17 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.alexmartin.buscagemas">
+    package="com.alexmartin.buscagemas" >
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BuscaGemas">
+        android:theme="@style/Theme.BuscaGemas" >
         <activity
+            android:theme="@style/Theme.BuscaGemasSinActionBar"
+            android:name=".tutorial.TutorialActivity"
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ScoreActivity"
+            android:exported="true"
+            android:parentActivityName=".MainActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:parentActivityName=".MainActivity"
+            android:name=".Dificultad"
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/Theme.BuscaGemasSinActionBar"
+            android:name=".TableGame"
+            android:exported="false"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/Theme.BuscaGemasSinActionBar"
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Splash"
+            android:exported="true"
+            android:theme="@style/Theme.BuscaGemasSinActionBar"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -5,6 +5,28 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="azul">#3A55E6</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+<!--    PALETA DE COLORES-->
+    <color name="azulado">#364959</color>
+    <color name="gris">#403F2F</color>
+    <color name="amarillo">#BF8211</color>
+    <color name="beage">#E3AF50</color>
+    <color name="marron">#8C5007</color>
+    <color name="rojo">#C52D21</color>
+    <color name="verde">#4CAF50</color>
+<!--    Nuevos colores -->
+    <color name="uno">#59313C</color>
+    <color name="dos">#8C2108</color>
+    <color name="dosS">#D5330D</color>
+    <color name="tres">#BF604B</color>
+    <color name="cuatro">#401515</color>
+    <color name="cuatroS">#BE2E0F0F</color>
+
+
+
+    <color name="alpha">#004CAF50</color>
 </resources>

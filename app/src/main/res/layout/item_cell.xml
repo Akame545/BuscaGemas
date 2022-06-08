@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Crearemos un adaptador para el recycelrView para cada una de las celdas del grid-->
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="32dp"
+    android:layout_height="32dp"
+    android:layout_margin="2dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/item_cell_value"
+        android:fontFamily="@font/zendots"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textSize="24dp"/>
+
+    <!--    En el TextView meteremos los numeros la bomba o la bandera segun las circunstancias.-->
+
+</LinearLayout>

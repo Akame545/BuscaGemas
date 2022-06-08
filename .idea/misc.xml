@@ -1,9 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/activity_dificulty.xml" value="0.17831813576494426" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/activity_score.xml" value="0.17831813576494426" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/activity_table_game.xml" value="0.33" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/card_record.xml" value="0.17831813576494426" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_1.xml" value="0.33" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_2.xml" value="0.22" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_3.xml" value="0.33" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_4.xml" value="0.25" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_5.xml" value="0.33" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_6.xml" value="0.36666666666666664" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_7.xml" value="0.36666666666666664" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_8.xml" value="0.36666666666666664" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/fragment_9.xml" value="0.36666666666666664" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/item_cell.xml" value="0.17831813576494426" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/layout/tarjeta_resultados.xml" value="0.33" />
+        <entry key="..\:/IES Juan de la Cierva 2021-22/PFC/BuscaGemas_pruebaZoom/app/src/main/res/menu/opciones_normal.xml" value="0.36666666666666664" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/alert_dialog.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/animation_background.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/button.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color1.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color2.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color3.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color4.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/color5.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamita.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_dinamitafondo.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondo.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondo1.xml" value="0.162" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_fondos.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joya.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joyanaranja.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_joyanaranja1.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_logo.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_pico_splash.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_picofondo.xml" value="0.1615" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_picofondo1.xml" value="0.2435" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_picos.xml" value="0.238" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_restart.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_roca.xml" value="0.267" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas0.xml" value="0.183" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/drawable/ic_vidas2.xml" value="0.183" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_game.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_juego.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_niveles.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_score.xml" value="0.33" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_splash.xml" value="0.1656534954407295" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/activity_table_game.xml" value="0.25" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/alert_dialog_dificultad_dificil.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/alert_dialog_dificultad_normal.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/alert_dialog_lost.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/alert_dialog_win.xml" value="0.340625" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/item_cell.xml" value="0.33" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/layout/tarjeta_resultados.xml" value="0.5" />
+        <entry key="..\:/PROYECTOS_ANDROID/AndroidStudioProjects/BuscaGemas/app/src/main/res/menu/opciones_normal.xml" value="0.340625" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/drawable/ic_fondo.xml" value="0.3055" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_dificultad.xml" value="0.3020833333333333" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_score.xml" value="0.35104166666666664" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/activity_table_game.xml" value="0.19746376811594202" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/alert_dialog_dificultad.xml" value="0.3020833333333333" />
+        <entry key="..\:/Proyectos/ProyectosGitHub/BuscaGemas/app/src/main/res/layout/tarjeta_resultados.xml" value="0.34757281553398056" />
+      </map>
+    </option>
   </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
