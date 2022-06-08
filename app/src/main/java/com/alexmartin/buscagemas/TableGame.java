@@ -197,15 +197,15 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    restart.callOnClick();
+                    Intent intent = new Intent(TableGame.this, MainActivity.class);
+                    startActivity(intent);
+                    dialog.dismiss();
                 }
             });
             builder.setNeutralButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    Intent intent = new Intent(TableGame.this, MainActivity.class);
-                    startActivity(intent);
-                    dialog.dismiss();
+                    restart.callOnClick();
                 }
             });
             AlertDialog dialog = builder.create();

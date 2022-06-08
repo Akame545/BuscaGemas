@@ -39,9 +39,6 @@ public class BuscaGemasGame implements Serializable {
             } else {
                 cell.setRevealed(true);
                 cell.setMined(true);
-                if(!cell.isHasGem()){
-                    cell.setRevealed(true);
-                }
                 picaxeDurability--;
                 if(picaxeDurability==0){
                     isGameOver=true;
