@@ -35,7 +35,7 @@ import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 public class TableGame extends AppCompatActivity implements onCellClickListener {
-    Integer ganar = -1;
+    Integer ganar;
     Integer remainingGems;
     BuscaGemasGame game;
 
@@ -64,7 +64,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_game);
-
+        ganar = -1;
         variableInicializer();
 
 
