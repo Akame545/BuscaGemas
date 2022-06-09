@@ -188,6 +188,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             ganar = 1;
             compScore();
             score+=200;
+            remainingGems = game.gemsAccordingToDifficulty(quantityGems);
             registrarScore();
 
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
