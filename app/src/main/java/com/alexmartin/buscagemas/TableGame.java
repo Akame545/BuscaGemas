@@ -51,7 +51,6 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
     ImageButton dynamite;
     Boolean tool = true; //True = dinamita, False = pico
     ImageButton picaxe;
-    AnimationDrawable anim;
     int mode = 0;
     int quantityGems = 0;
     int seconds;
@@ -97,7 +96,7 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         gemsGridRecyclerAdapter = new GemsGridRecyclerAdapter(game.getGemsGrid().getCellsList(), this);
         gridRecyclerView.setAdapter(gemsGridRecyclerAdapter);
 
-
+        seconds = game.getSeconds();
         timer.setText(String.valueOf(seconds));
         startTimer(seconds);
 
@@ -242,7 +241,9 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
             AlertDialog dialog = builder.create();
             dialog.show();
             game.getGemsGrid().revealAllBombs();
-            cdt.cancel();
+            if(cdt != null) {
+                cdt.cancel();
+            }
         }
     }
     private void compScore(){
@@ -341,28 +342,21 @@ public class TableGame extends AppCompatActivity implements onCellClickListener 
         }
         return null;
     }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (anim != null && !anim.isRunning())
-            anim.start();
-    }
 
-    // Stopping animation:- stop the animation on onPause.
     @Override
     protected void onPause() {
         super.onPause();
         if(ganar<0) {
             saveFile();
         }
-        if (anim != null && anim.isRunning())
-            anim.stop();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        saveFile();
+        if(ganar<0) {
+            saveFile();
+        }
         cdt.cancel();
     }
     private void registrarScore(){

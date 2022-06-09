@@ -33,7 +33,6 @@
 
     <string name="descriptionFragment9">¡Suerte en tu nueva partida!</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="regular">Normal</string>
     <string name="hard">Difícil</string>
     <string name="difficulty">Dificultad</string>
@@ -43,8 +42,8 @@
     <string name="historial_tittle">HISTORIAL</string>
     <string name="search_gems">BUSCA GEMAS</string>
     <string name="difficulty_alert">Dificultad</string>
-    <string name="text_alert">¿Cuantas minas quiere que haya?</string>
-    <string name="title_alert_game">Tienes una partida empezada</string>
+    <string name="text_alert">¿Cuantas gemas quiere que haya?</string>
+    <string name="title_alert_game">Tienes una partida en curso</string>
     <string name="text_alert_game">¿Quieres continuarla?</string>
     <string name="title_alert_lost">Has Perdido</string>
     <string name="text_alert_lost">¿Quieres volver a intentarlo?</string>
