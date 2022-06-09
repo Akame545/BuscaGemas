@@ -67,6 +67,7 @@ public class ScoreActivity extends AppCompatActivity {
             score.setModo(cursor.getInt(2));
             score.setCantidad_gemas(cursor.getInt(3));
             score.setVidas_restantes(cursor.getInt(4));
+
             score.setGemas_restantes(cursor.getInt(5));
             score.setFecha(cursor.getString(6));
             score.setScore(cursor.getInt(7));

@@ -43,7 +43,11 @@ public class ScoreAdapter extends RecyclerView.Adapter<ScoreAdapter.ViewHolder>{
                 holder.modo.setText(R.string.very_hard);
                 break;
         }
-        holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString()+"/"+listaScore.get(position).getCantidad_gemas().toString());
+        if(listaScore.get(position).getGemas_restantes() == listaScore.get(position).getCantidad_gemas()){
+            holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString());
+        } else {
+            holder.gemas.setText(listaScore.get(position).getGemas_restantes().toString()+"/"+listaScore.get(position).getCantidad_gemas().toString());
+        }
         holder.fecha.setText(listaScore.get(position).getFecha());
 
     }
